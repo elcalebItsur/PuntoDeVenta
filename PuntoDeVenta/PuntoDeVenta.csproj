@@ -46,33 +46,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Front end\login.cs">
+    <Compile Include="Frontend\LoginMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Front end\login.Designer.cs">
-      <DependentUpon>login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Front end\LoginMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Front end\LoginMain.Designer.cs">
+    <Compile Include="Frontend\LoginMain.Designer.cs">
       <DependentUpon>LoginMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Front end\Ventas.cs">
+    <Compile Include="Frontend\VentanaPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Front end\Ventas.Designer.cs">
+    <Compile Include="Frontend\VentanaPrincipal.Designer.cs">
+      <DependentUpon>VentanaPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Ventas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\Ventas.Designer.cs">
       <DependentUpon>Ventas.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Front end\login.resx">
-      <DependentUpon>login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Front end\LoginMain.resx">
+    <EmbeddedResource Include="Frontend\LoginMain.resx">
       <DependentUpon>LoginMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Front end\Ventas.resx">
+    <EmbeddedResource Include="Frontend\VentanaPrincipal.resx">
+      <DependentUpon>VentanaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\Ventas.resx">
       <DependentUpon>Ventas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

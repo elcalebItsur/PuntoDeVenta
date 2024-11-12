@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginMain));
             this.BarraMenu = new System.Windows.Forms.Panel();
+            this.lblNombreMenu = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
-            this.lblNombreMenu = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblUsuario = new System.Windows.Forms.Label();
@@ -50,7 +50,7 @@
             // 
             // BarraMenu
             // 
-            this.BarraMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.BarraMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
             this.BarraMenu.Controls.Add(this.lblNombreMenu);
             this.BarraMenu.Controls.Add(this.pictureBox2);
             this.BarraMenu.Controls.Add(this.pictureBox1);
@@ -60,6 +60,17 @@
             this.BarraMenu.Name = "BarraMenu";
             this.BarraMenu.Size = new System.Drawing.Size(980, 35);
             this.BarraMenu.TabIndex = 0;
+            // 
+            // lblNombreMenu
+            // 
+            this.lblNombreMenu.AutoSize = true;
+            this.lblNombreMenu.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreMenu.ForeColor = System.Drawing.Color.Black;
+            this.lblNombreMenu.Location = new System.Drawing.Point(39, 9);
+            this.lblNombreMenu.Name = "lblNombreMenu";
+            this.lblNombreMenu.Size = new System.Drawing.Size(175, 18);
+            this.lblNombreMenu.TabIndex = 3;
+            this.lblNombreMenu.Text = "Punto De Venta - Login";
             // 
             // pictureBox2
             // 
@@ -96,22 +107,12 @@
             this.btnClose.TabStop = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // lblNombreMenu
-            // 
-            this.lblNombreMenu.AutoSize = true;
-            this.lblNombreMenu.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreMenu.Location = new System.Drawing.Point(39, 9);
-            this.lblNombreMenu.Name = "lblNombreMenu";
-            this.lblNombreMenu.Size = new System.Drawing.Size(175, 18);
-            this.lblNombreMenu.TabIndex = 3;
-            this.lblNombreMenu.Text = "Punto De Venta - Login";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.label3.Font = new System.Drawing.Font("Century Gothic", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DimGray;
+            this.label3.ForeColor = System.Drawing.Color.Silver;
             this.label3.Location = new System.Drawing.Point(370, 50);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -135,7 +136,7 @@
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.ForeColor = System.Drawing.Color.DimGray;
+            this.lblUsuario.ForeColor = System.Drawing.Color.Silver;
             this.lblUsuario.Location = new System.Drawing.Point(240, 170);
             this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuario.Name = "lblUsuario";
@@ -147,7 +148,7 @@
             // 
             this.lblContraseña.AutoSize = true;
             this.lblContraseña.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContraseña.ForeColor = System.Drawing.Color.DimGray;
+            this.lblContraseña.ForeColor = System.Drawing.Color.Silver;
             this.lblContraseña.Location = new System.Drawing.Point(240, 265);
             this.lblContraseña.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblContraseña.Name = "lblContraseña";
@@ -176,7 +177,7 @@
             // btnIniciarSesion
             // 
             this.btnIniciarSesion.AllowDrop = true;
-            this.btnIniciarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnIniciarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
             this.btnIniciarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnIniciarSesion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(150)))));
             this.btnIniciarSesion.FlatAppearance.BorderSize = 0;

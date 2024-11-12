@@ -54,7 +54,7 @@ Este proyecto de punto de venta (POS) está diseñado para facilitar y gestionar
 El proyecto fue desarrollado por estudiantes del **Instituto Tecnológico Nacional de México (TecNM), campus Sur de Guanajuato (ITSUR)**:
 
 - **Caleb Zacarías García** – [Instagram: @elcaleb10](https://www.instagram.com/elcaleb10)
-- **Sergio Enrique Guzmán Cornejo** – [Instagram: @quiteguzmanc](https://www.instagram.com/quiteguzmanc)
+- **Sergio Enrique Guzmán Cornejo** – [Instagram: @quiteguzmanc](https://www.instagram.com/quiqueguzmanc)
 - **Manuel Alejandro Rico** – [Instagram: @mane075](https://www.instagram.com/mane075)
 - **Alonso Guzmán Ruiz** – *Instagram pendiente*
 

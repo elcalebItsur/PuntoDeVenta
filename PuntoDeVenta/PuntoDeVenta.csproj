@@ -52,6 +52,12 @@
     <Compile Include="Front end\login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Front end\LoginMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Front end\LoginMain.Designer.cs">
+      <DependentUpon>LoginMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Front end\Ventas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Front end\login.resx">
       <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Front end\LoginMain.resx">
+      <DependentUpon>LoginMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Front end\Ventas.resx">
       <DependentUpon>Ventas.cs</DependentUpon>

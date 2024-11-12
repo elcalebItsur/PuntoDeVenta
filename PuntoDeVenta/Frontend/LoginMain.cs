@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PuntoDeVenta.Frontend;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,6 +26,36 @@ namespace PuntoDeVenta.Front_end
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnIniciarSesion_Click(object sender, EventArgs e)
+        {
+            string usuario = txtUsuario.Text;
+            string contrasena = txtPassword.Text;
+
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            if (usuarioDAO.IniciarSesion(usuario, contrasena, out int usuarioId))
+            {
+                MessageBox.Show("Inicio de sesión exitoso.");
+                this.Hide();
+
+                // Abre el formulario Mensaje pasando el usuarioId
+                VentanaPrincipal mensajeForm = new VentanaPrincipal(usuarioId);
+                mensajeForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Usuario o contraseña incorrecto(s).");
+            }
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = true;
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -101,6 +101,7 @@
             this.barraTitulo.Name = "barraTitulo";
             this.barraTitulo.Size = new System.Drawing.Size(1300, 35);
             this.barraTitulo.TabIndex = 0;
+            this.barraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barraTitulo_MouseDown);
             // 
             // btnMaximizar
             // 
@@ -614,7 +615,6 @@
             this.contendor.Name = "contendor";
             this.contendor.Size = new System.Drawing.Size(1003, 694);
             this.contendor.TabIndex = 2;
-            this.contendor.Visible = false;
             this.contendor.Paint += new System.Windows.Forms.PaintEventHandler(this.contendor_Paint);
             // 
             // VentanaPrincipal
@@ -628,6 +628,7 @@
             this.Controls.Add(this.barraTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "VentanaPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VentanaPrincipal";
             this.barraTitulo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();

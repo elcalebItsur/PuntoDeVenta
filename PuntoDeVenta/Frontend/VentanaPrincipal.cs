@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace PuntoDeVenta.Frontend
 {
     public partial class VentanaPrincipal : Form
     {
-        public VentanaPrincipal()
+        private int usuarioId; // Almacenar el usuario logueado
+        public VentanaPrincipal(int usuarioId)
         {
             InitializeComponent();
+            this.usuarioId = usuarioId;
             //this.WindowState = FormWindowState.Maximized;
         }
 
@@ -105,6 +108,17 @@ namespace PuntoDeVenta.Frontend
         private void btnProveedor_Click(object sender, EventArgs e)
         {
             subMenuReportes.Visible = false;
+        }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
+
+        private void barraTitulo_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

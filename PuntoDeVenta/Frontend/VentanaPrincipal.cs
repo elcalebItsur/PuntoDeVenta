@@ -83,6 +83,9 @@ namespace PuntoDeVenta.Frontend
         private void btnProductos_Click(object sender, EventArgs e)
         {
             subMenuReportes.Visible = false;
+            Productos product = new Productos();
+            product.Show();
+            this.Close();
         }
 
         private void btnVenta_Click(object sender, EventArgs e)

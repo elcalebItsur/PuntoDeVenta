@@ -212,6 +212,7 @@
             this.Controls.Add(this.BarraMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginMain";
+            this.Opacity = 0.8D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginMain";
             this.BarraMenu.ResumeLayout(false);

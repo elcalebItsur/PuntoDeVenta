@@ -83,9 +83,7 @@ namespace PuntoDeVenta.Frontend
         private void btnProductos_Click(object sender, EventArgs e)
         {
             subMenuReportes.Visible = false;
-            Productos product = new Productos();
-            product.Show();
-            this.Close();
+            abrirFormHoja(new Productos());
         }
 
         private void btnVenta_Click(object sender, EventArgs e)
@@ -123,5 +121,20 @@ namespace PuntoDeVenta.Frontend
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        private void abrirFormHoja(object formHija)
+        {
+            if (this.contendor.Controls.Count > 0)
+            {
+                this.contendor.Controls.Clear();    
+            }
+            Form fh = formHija as Form;
+            fh.TopLevel = false;
+            fh.Dock = DockStyle.Fill;
+            this.contendor.Controls.Add(fh);
+            this.contendor.Tag = fh;
+            fh.Show();
+        }
+
     }
 }

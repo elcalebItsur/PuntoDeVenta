@@ -40,12 +40,23 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnEliminarProducto = new System.Windows.Forms.Button();
             this.brnLimpiar = new System.Windows.Forms.Button();
             this.dataGridDatosP = new System.Windows.Forms.DataGridView();
             this.btnRegistrarNuevoProducto = new System.Windows.Forms.Button();
+            this.pnlBorrarProducto = new System.Windows.Forms.Panel();
+            this.lblBorrarP = new System.Windows.Forms.Label();
+            this.txtCodigoBarrasBorrar = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnModificarPrecio = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtNuevoPrecio = new System.Windows.Forms.TextBox();
+            this.txtCódigoBarrasNuevoPrecio = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDatosP)).BeginInit();
+            this.pnlBorrarProducto.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -152,41 +163,41 @@
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Location = new System.Drawing.Point(16, 370);
             this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(121, 24);
+            this.cmbCategoria.Size = new System.Drawing.Size(188, 24);
             this.cmbCategoria.TabIndex = 9;
             // 
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.Lime;
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(20, 526);
+            this.btnGuardar.Location = new System.Drawing.Point(17, 526);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(201, 35);
+            this.btnGuardar.Size = new System.Drawing.Size(204, 35);
             this.btnGuardar.TabIndex = 11;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // btnCancelar
+            // btnEliminarProducto
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Red;
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(20, 567);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(201, 35);
-            this.btnCancelar.TabIndex = 12;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnEliminarProducto.BackColor = System.Drawing.Color.Red;
+            this.btnEliminarProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarProducto.Location = new System.Drawing.Point(0, 96);
+            this.btnEliminarProducto.Name = "btnEliminarProducto";
+            this.btnEliminarProducto.Size = new System.Drawing.Size(200, 35);
+            this.btnEliminarProducto.TabIndex = 12;
+            this.btnEliminarProducto.Text = "Eliminar";
+            this.btnEliminarProducto.UseVisualStyleBackColor = false;
             // 
             // brnLimpiar
             // 
             this.brnLimpiar.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.brnLimpiar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.brnLimpiar.Location = new System.Drawing.Point(20, 608);
+            this.brnLimpiar.Location = new System.Drawing.Point(17, 647);
             this.brnLimpiar.Name = "brnLimpiar";
             this.brnLimpiar.Size = new System.Drawing.Size(204, 35);
             this.brnLimpiar.TabIndex = 13;
-            this.brnLimpiar.Text = "Limpiar";
+            this.brnLimpiar.Text = "Limpiar Tabla";
             this.brnLimpiar.UseVisualStyleBackColor = false;
             this.brnLimpiar.Click += new System.EventHandler(this.brnLimpiar_Click);
             // 
@@ -197,14 +208,14 @@
             this.dataGridDatosP.Name = "dataGridDatosP";
             this.dataGridDatosP.RowHeadersWidth = 51;
             this.dataGridDatosP.RowTemplate.Height = 24;
-            this.dataGridDatosP.Size = new System.Drawing.Size(744, 670);
+            this.dataGridDatosP.Size = new System.Drawing.Size(900, 508);
             this.dataGridDatosP.TabIndex = 14;
             // 
             // btnRegistrarNuevoProducto
             // 
             this.btnRegistrarNuevoProducto.BackColor = System.Drawing.Color.Yellow;
             this.btnRegistrarNuevoProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrarNuevoProducto.Location = new System.Drawing.Point(17, 649);
+            this.btnRegistrarNuevoProducto.Location = new System.Drawing.Point(17, 589);
             this.btnRegistrarNuevoProducto.Name = "btnRegistrarNuevoProducto";
             this.btnRegistrarNuevoProducto.Size = new System.Drawing.Size(204, 33);
             this.btnRegistrarNuevoProducto.TabIndex = 15;
@@ -212,16 +223,106 @@
             this.btnRegistrarNuevoProducto.UseVisualStyleBackColor = false;
             this.btnRegistrarNuevoProducto.Click += new System.EventHandler(this.btnRegistrarNuevoProducto_Click);
             // 
+            // pnlBorrarProducto
+            // 
+            this.pnlBorrarProducto.Controls.Add(this.txtCodigoBarrasBorrar);
+            this.pnlBorrarProducto.Controls.Add(this.lblBorrarP);
+            this.pnlBorrarProducto.Controls.Add(this.btnEliminarProducto);
+            this.pnlBorrarProducto.Location = new System.Drawing.Point(247, 551);
+            this.pnlBorrarProducto.Name = "pnlBorrarProducto";
+            this.pnlBorrarProducto.Size = new System.Drawing.Size(200, 131);
+            this.pnlBorrarProducto.TabIndex = 16;
+            // 
+            // lblBorrarP
+            // 
+            this.lblBorrarP.AutoSize = true;
+            this.lblBorrarP.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBorrarP.Location = new System.Drawing.Point(35, 38);
+            this.lblBorrarP.Name = "lblBorrarP";
+            this.lblBorrarP.Size = new System.Drawing.Size(137, 18);
+            this.lblBorrarP.TabIndex = 10;
+            this.lblBorrarP.Text = "Código de Barras";
+            // 
+            // txtCodigoBarrasBorrar
+            // 
+            this.txtCodigoBarrasBorrar.Location = new System.Drawing.Point(0, 68);
+            this.txtCodigoBarrasBorrar.Name = "txtCodigoBarrasBorrar";
+            this.txtCodigoBarrasBorrar.Size = new System.Drawing.Size(200, 22);
+            this.txtCodigoBarrasBorrar.TabIndex = 10;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.txtCódigoBarrasNuevoPrecio);
+            this.panel2.Controls.Add(this.txtNuevoPrecio);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.btnModificarPrecio);
+            this.panel2.Location = new System.Drawing.Point(481, 526);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 156);
+            this.panel2.TabIndex = 17;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(49, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(107, 18);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Nuevo Precio";
+            // 
+            // btnModificarPrecio
+            // 
+            this.btnModificarPrecio.BackColor = System.Drawing.Color.SpringGreen;
+            this.btnModificarPrecio.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarPrecio.ForeColor = System.Drawing.Color.Black;
+            this.btnModificarPrecio.Location = new System.Drawing.Point(0, 121);
+            this.btnModificarPrecio.Name = "btnModificarPrecio";
+            this.btnModificarPrecio.Size = new System.Drawing.Size(200, 35);
+            this.btnModificarPrecio.TabIndex = 12;
+            this.btnModificarPrecio.Text = "Modificar";
+            this.btnModificarPrecio.UseVisualStyleBackColor = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(35, 63);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(137, 18);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Código de Barras";
+            // 
+            // txtNuevoPrecio
+            // 
+            this.txtNuevoPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNuevoPrecio.Location = new System.Drawing.Point(0, 25);
+            this.txtNuevoPrecio.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNuevoPrecio.Name = "txtNuevoPrecio";
+            this.txtNuevoPrecio.Size = new System.Drawing.Size(200, 22);
+            this.txtNuevoPrecio.TabIndex = 18;
+            // 
+            // txtCódigoBarrasNuevoPrecio
+            // 
+            this.txtCódigoBarrasNuevoPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCódigoBarrasNuevoPrecio.Location = new System.Drawing.Point(0, 92);
+            this.txtCódigoBarrasNuevoPrecio.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCódigoBarrasNuevoPrecio.Name = "txtCódigoBarrasNuevoPrecio";
+            this.txtCódigoBarrasNuevoPrecio.Size = new System.Drawing.Size(200, 22);
+            this.txtCódigoBarrasNuevoPrecio.TabIndex = 19;
+            // 
             // Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1003, 694);
+            this.ClientSize = new System.Drawing.Size(1170, 694);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnlBorrarProducto);
             this.Controls.Add(this.btnRegistrarNuevoProducto);
             this.Controls.Add(this.dataGridDatosP);
             this.Controls.Add(this.brnLimpiar);
-            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -230,6 +331,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDatosP)).EndInit();
+            this.pnlBorrarProducto.ResumeLayout(false);
+            this.pnlBorrarProducto.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -247,10 +352,19 @@
         private System.Windows.Forms.TextBox txtCodigo_Barras;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnEliminarProducto;
         private System.Windows.Forms.Button brnLimpiar;
         private System.Windows.Forms.DataGridView dataGridDatosP;
         private System.Windows.Forms.Button btnRegistrarNuevoProducto;
         private System.Windows.Forms.ComboBox cmbCategoria;
+        private System.Windows.Forms.Panel pnlBorrarProducto;
+        private System.Windows.Forms.TextBox txtCodigoBarrasBorrar;
+        private System.Windows.Forms.Label lblBorrarP;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnModificarPrecio;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtCódigoBarrasNuevoPrecio;
+        private System.Windows.Forms.TextBox txtNuevoPrecio;
     }
 }

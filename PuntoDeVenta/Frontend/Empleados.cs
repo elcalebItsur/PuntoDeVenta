@@ -51,15 +51,17 @@ namespace PuntoDeVenta.Frontend
                 return;
             }
 
+            
+
             try
             {
                empleados.RegistrarEmpleado(Id, clave, nombre, apellido, departamento, telefono);
-                MessageBox.Show("Producto registrado correctamente.");
+                MessageBox.Show("Empleado registrado correctamente.");
               
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al registrar el producto: " + ex.Message);
+                MessageBox.Show("Error al registrar el empleado: " + ex.Message);
             }
 
 

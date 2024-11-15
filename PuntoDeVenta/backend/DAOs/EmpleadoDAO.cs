@@ -24,8 +24,8 @@ namespace PuntoDeVenta.backend.DAOs
             {
                 connection.Open();
 
-                string query = "INSERT INTO empleados (IdEmpleado, Clave_empleado, Nombre, Apellido, Departamento, telefono, Num_ventas) "
-                             + "VALUES (@Id, @Clave, @nombr, @apellido, @departamento,@Telefono)";
+                string query = "INSERT INTO empleados (IdEmpleado, Clave_empleado, Nombre, Apellido, Departamento, telefono) "
+                             + "VALUES (@Id, @Clave, @nombre, @apellido, @departamento,@Telefono)";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@Id", Id);
                 cmd.Parameters.AddWithValue("@Clave", Clave);
@@ -53,18 +53,25 @@ namespace PuntoDeVenta.backend.DAOs
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
-                // Asignamos el DataTable al DataGridView para mostrar los productos
+                // Asignamos el DataTable al DataGridView para mostrar los empleados
                 dataGridView.DataSource = dt;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al mostrar los productos: " + ex.Message);
+                MessageBox.Show("Error al mostrar los empleados: " + ex.Message);
             }
             finally
             {
                 connection.Close();
             }
+
+
         }
+
+        
+
 
     }
 }
+
+

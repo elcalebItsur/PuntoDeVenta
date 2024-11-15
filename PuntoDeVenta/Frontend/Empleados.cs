@@ -40,18 +40,27 @@ namespace PuntoDeVenta.Frontend
             string apellido = txtapellido.Text;
             string departamento= txtdepartamento.Text;
             string telefono = txttelefono.Text;
-            string num_ventas = txtventas.Text;
+            
 
             if (string.IsNullOrWhiteSpace(Id) || string.IsNullOrWhiteSpace(clave) ||
                 string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(apellido) ||
                 string.IsNullOrWhiteSpace(departamento) || string.IsNullOrWhiteSpace(telefono)
-                || string.IsNullOrWhiteSpace(num_ventas))
+                )
             {
                 MessageBox.Show("Por favor, complete todos los campos.");
                 return;
             }
 
-            
+            try
+            {
+               empleados.RegistrarEmpleado(Id, clave, nombre, apellido, departamento, telefono);
+                MessageBox.Show("Producto registrado correctamente.");
+              
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al registrar el producto: " + ex.Message);
+            }
 
 
 

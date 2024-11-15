@@ -18,14 +18,14 @@ namespace PuntoDeVenta.backend.DAOs
              string connectionString = "Server=proyectobh.mysql.database.azure.com;Database=PuntoDeVenta;Uid=ProyectoU4;Pwd=SQL55H7#;";
                 connection = new MySqlConnection(connectionString);
     }
-        public bool RegistrarEmpleado(string Id , string Clave, string nombre, string apellido, string departamento, string Telefono, int num_ventas)
+        public bool RegistrarEmpleado(string Id , string Clave, string nombre, string apellido, string departamento, string Telefono)
         {
             try
             {
                 connection.Open();
 
                 string query = "INSERT INTO empleados (IdEmpleado, Clave_empleado, Nombre, Apellido, Departamento, telefono, Num_ventas) "
-                             + "VALUES (@Id, @Clave, @nombr, @apellido, @departamento,@Telefono,@num_ventas)";
+                             + "VALUES (@Id, @Clave, @nombr, @apellido, @departamento,@Telefono)";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@Id", Id);
                 cmd.Parameters.AddWithValue("@Clave", Clave);
@@ -33,7 +33,7 @@ namespace PuntoDeVenta.backend.DAOs
                 cmd.Parameters.AddWithValue("@apellido", apellido);
                 cmd.Parameters.AddWithValue("@departamento", departamento);
                 cmd.Parameters.AddWithValue("@Telefono", Telefono);
-                cmd.Parameters.AddWithValue("@num_ventas", num_ventas);
+               
 
                 int result = cmd.ExecuteNonQuery();
                 return result > 0;

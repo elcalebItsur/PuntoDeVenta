@@ -101,5 +101,15 @@ namespace PuntoDeVenta.Frontend
         {
             dataGridDatosP.DataSource = null;
         }
+
+        private void dataGridDatosP_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

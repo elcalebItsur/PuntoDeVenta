@@ -109,6 +109,8 @@ namespace PuntoDeVenta.Frontend
         private void btnProveedor_Click(object sender, EventArgs e)
         {
             subMenuReportes.Visible = false;
+            abrirFormHoja(new Empleados());
+
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]

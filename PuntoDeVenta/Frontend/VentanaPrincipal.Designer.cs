@@ -52,7 +52,7 @@
             this.btnCaja = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.btnProveedor = new System.Windows.Forms.Button();
+            this.btnEmpleado = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnConsultarVenta = new System.Windows.Forms.Button();
@@ -98,8 +98,9 @@
             this.barraTitulo.Controls.Add(this.btnClose);
             this.barraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.barraTitulo.Location = new System.Drawing.Point(0, 0);
+            this.barraTitulo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.barraTitulo.Name = "barraTitulo";
-            this.barraTitulo.Size = new System.Drawing.Size(1300, 35);
+            this.barraTitulo.Size = new System.Drawing.Size(1462, 44);
             this.barraTitulo.TabIndex = 0;
             this.barraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.barraTitulo_MouseDown);
             // 
@@ -108,9 +109,10 @@
             this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
-            this.btnMaximizar.Location = new System.Drawing.Point(1212, 7);
+            this.btnMaximizar.Location = new System.Drawing.Point(1364, 9);
+            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Size = new System.Drawing.Size(25, 25);
+            this.btnMaximizar.Size = new System.Drawing.Size(28, 31);
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMaximizar.TabIndex = 5;
             this.btnMaximizar.TabStop = false;
@@ -122,9 +124,10 @@
             this.btnMinimizarTamaño.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnMinimizarTamaño.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizarTamaño.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizarTamaño.Image")));
-            this.btnMinimizarTamaño.Location = new System.Drawing.Point(1212, 7);
+            this.btnMinimizarTamaño.Location = new System.Drawing.Point(1364, 9);
+            this.btnMinimizarTamaño.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMinimizarTamaño.Name = "btnMinimizarTamaño";
-            this.btnMinimizarTamaño.Size = new System.Drawing.Size(25, 25);
+            this.btnMinimizarTamaño.Size = new System.Drawing.Size(28, 31);
             this.btnMinimizarTamaño.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMinimizarTamaño.TabIndex = 4;
             this.btnMinimizarTamaño.TabStop = false;
@@ -136,9 +139,10 @@
             this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(1158, 7);
+            this.btnMinimizar.Location = new System.Drawing.Point(1303, 9);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(25, 25);
+            this.btnMinimizar.Size = new System.Drawing.Size(28, 31);
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMinimizar.TabIndex = 2;
             this.btnMinimizar.TabStop = false;
@@ -149,9 +153,10 @@
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(1263, 7);
+            this.btnClose.Location = new System.Drawing.Point(1421, 9);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(25, 25);
+            this.btnClose.Size = new System.Drawing.Size(28, 31);
             this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnClose.TabIndex = 1;
             this.btnClose.TabStop = false;
@@ -169,7 +174,7 @@
             this.MenuOpciones.Controls.Add(this.btnCaja);
             this.MenuOpciones.Controls.Add(this.pictureBox6);
             this.MenuOpciones.Controls.Add(this.panel7);
-            this.MenuOpciones.Controls.Add(this.btnProveedor);
+            this.MenuOpciones.Controls.Add(this.btnEmpleado);
             this.MenuOpciones.Controls.Add(this.pictureBox5);
             this.MenuOpciones.Controls.Add(this.panel6);
             this.MenuOpciones.Controls.Add(this.btnConsultarVenta);
@@ -187,9 +192,10 @@
             this.MenuOpciones.Controls.Add(this.panel1);
             this.MenuOpciones.Controls.Add(this.btnProductos);
             this.MenuOpciones.Dock = System.Windows.Forms.DockStyle.Left;
-            this.MenuOpciones.Location = new System.Drawing.Point(0, 35);
+            this.MenuOpciones.Location = new System.Drawing.Point(0, 44);
+            this.MenuOpciones.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MenuOpciones.Name = "MenuOpciones";
-            this.MenuOpciones.Size = new System.Drawing.Size(297, 694);
+            this.MenuOpciones.Size = new System.Drawing.Size(334, 867);
             this.MenuOpciones.TabIndex = 1;
             // 
             // subMenuReportes
@@ -200,9 +206,10 @@
             this.subMenuReportes.Controls.Add(this.panel12);
             this.subMenuReportes.Controls.Add(this.panel13);
             this.subMenuReportes.Controls.Add(this.panel14);
-            this.subMenuReportes.Location = new System.Drawing.Point(55, 537);
+            this.subMenuReportes.Location = new System.Drawing.Point(62, 671);
+            this.subMenuReportes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.subMenuReportes.Name = "subMenuReportes";
-            this.subMenuReportes.Size = new System.Drawing.Size(239, 145);
+            this.subMenuReportes.Size = new System.Drawing.Size(269, 181);
             this.subMenuReportes.TabIndex = 0;
             this.subMenuReportes.Visible = false;
             // 
@@ -215,9 +222,10 @@
             this.btnrpPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnrpPago.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnrpPago.ForeColor = System.Drawing.Color.White;
-            this.btnrpPago.Location = new System.Drawing.Point(3, 100);
+            this.btnrpPago.Location = new System.Drawing.Point(3, 125);
+            this.btnrpPago.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnrpPago.Name = "btnrpPago";
-            this.btnrpPago.Size = new System.Drawing.Size(239, 35);
+            this.btnrpPago.Size = new System.Drawing.Size(269, 44);
             this.btnrpPago.TabIndex = 30;
             this.btnrpPago.Text = "Pagos";
             this.btnrpPago.UseVisualStyleBackColor = false;
@@ -232,9 +240,10 @@
             this.btnrpVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnrpVenta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnrpVenta.ForeColor = System.Drawing.Color.White;
-            this.btnrpVenta.Location = new System.Drawing.Point(3, 3);
+            this.btnrpVenta.Location = new System.Drawing.Point(3, 4);
+            this.btnrpVenta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnrpVenta.Name = "btnrpVenta";
-            this.btnrpVenta.Size = new System.Drawing.Size(239, 35);
+            this.btnrpVenta.Size = new System.Drawing.Size(269, 44);
             this.btnrpVenta.TabIndex = 28;
             this.btnrpVenta.Text = "Ventas";
             this.btnrpVenta.UseVisualStyleBackColor = false;
@@ -249,9 +258,10 @@
             this.btnrpCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnrpCompra.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnrpCompra.ForeColor = System.Drawing.Color.White;
-            this.btnrpCompra.Location = new System.Drawing.Point(3, 47);
+            this.btnrpCompra.Location = new System.Drawing.Point(3, 59);
+            this.btnrpCompra.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnrpCompra.Name = "btnrpCompra";
-            this.btnrpCompra.Size = new System.Drawing.Size(239, 35);
+            this.btnrpCompra.Size = new System.Drawing.Size(269, 44);
             this.btnrpCompra.TabIndex = 29;
             this.btnrpCompra.Text = "Compras";
             this.btnrpCompra.UseVisualStyleBackColor = false;
@@ -261,36 +271,40 @@
             // 
             this.panel12.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
-            this.panel12.Location = new System.Drawing.Point(0, 3);
+            this.panel12.Location = new System.Drawing.Point(0, 4);
+            this.panel12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(5, 35);
+            this.panel12.Size = new System.Drawing.Size(6, 44);
             this.panel12.TabIndex = 25;
             // 
             // panel13
             // 
             this.panel13.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
-            this.panel13.Location = new System.Drawing.Point(0, 47);
+            this.panel13.Location = new System.Drawing.Point(0, 59);
+            this.panel13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(5, 35);
+            this.panel13.Size = new System.Drawing.Size(6, 44);
             this.panel13.TabIndex = 26;
             // 
             // panel14
             // 
             this.panel14.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
-            this.panel14.Location = new System.Drawing.Point(0, 100);
+            this.panel14.Location = new System.Drawing.Point(0, 125);
+            this.panel14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(5, 35);
+            this.panel14.Size = new System.Drawing.Size(6, 44);
             this.panel14.TabIndex = 27;
             // 
             // pictureBox8
             // 
             this.pictureBox8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(25, 494);
+            this.pictureBox8.Location = new System.Drawing.Point(28, 617);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox8.Size = new System.Drawing.Size(39, 44);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 24;
             this.pictureBox8.TabStop = false;
@@ -300,9 +314,10 @@
             this.panel10.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
             this.panel10.Controls.Add(this.panel11);
-            this.panel10.Location = new System.Drawing.Point(0, 494);
+            this.panel10.Location = new System.Drawing.Point(0, 617);
+            this.panel10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(5, 35);
+            this.panel10.Size = new System.Drawing.Size(6, 44);
             this.panel10.TabIndex = 23;
             // 
             // panel11
@@ -310,8 +325,9 @@
             this.panel11.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
             this.panel11.Location = new System.Drawing.Point(0, 0);
+            this.panel11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(5, 35);
+            this.panel11.Size = new System.Drawing.Size(6, 44);
             this.panel11.TabIndex = 21;
             // 
             // btnReportes
@@ -323,9 +339,10 @@
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportes.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.ForeColor = System.Drawing.Color.White;
-            this.btnReportes.Location = new System.Drawing.Point(3, 494);
+            this.btnReportes.Location = new System.Drawing.Point(3, 617);
+            this.btnReportes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(294, 35);
+            this.btnReportes.Size = new System.Drawing.Size(331, 44);
             this.btnReportes.TabIndex = 22;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.UseVisualStyleBackColor = false;
@@ -335,9 +352,10 @@
             // 
             this.pictureBox7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(25, 441);
+            this.pictureBox7.Location = new System.Drawing.Point(28, 550);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox7.Size = new System.Drawing.Size(39, 44);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 21;
             this.pictureBox7.TabStop = false;
@@ -347,9 +365,10 @@
             this.panel8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
             this.panel8.Controls.Add(this.panel9);
-            this.panel8.Location = new System.Drawing.Point(0, 441);
+            this.panel8.Location = new System.Drawing.Point(0, 550);
+            this.panel8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(5, 35);
+            this.panel8.Size = new System.Drawing.Size(6, 44);
             this.panel8.TabIndex = 20;
             // 
             // panel9
@@ -357,8 +376,9 @@
             this.panel9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
             this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(5, 35);
+            this.panel9.Size = new System.Drawing.Size(6, 44);
             this.panel9.TabIndex = 21;
             // 
             // btnCaja
@@ -370,9 +390,10 @@
             this.btnCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCaja.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCaja.ForeColor = System.Drawing.Color.White;
-            this.btnCaja.Location = new System.Drawing.Point(3, 441);
+            this.btnCaja.Location = new System.Drawing.Point(3, 550);
+            this.btnCaja.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCaja.Name = "btnCaja";
-            this.btnCaja.Size = new System.Drawing.Size(294, 35);
+            this.btnCaja.Size = new System.Drawing.Size(331, 44);
             this.btnCaja.TabIndex = 19;
             this.btnCaja.Text = "Caja";
             this.btnCaja.UseVisualStyleBackColor = false;
@@ -382,9 +403,10 @@
             // 
             this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(25, 383);
+            this.pictureBox6.Location = new System.Drawing.Point(28, 478);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox6.Size = new System.Drawing.Size(39, 44);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 18;
             this.pictureBox6.TabStop = false;
@@ -393,35 +415,38 @@
             // 
             this.panel7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
-            this.panel7.Location = new System.Drawing.Point(0, 383);
+            this.panel7.Location = new System.Drawing.Point(0, 478);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(5, 35);
+            this.panel7.Size = new System.Drawing.Size(6, 44);
             this.panel7.TabIndex = 17;
             // 
-            // btnProveedor
+            // btnEmpleado
             // 
-            this.btnProveedor.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.btnProveedor.FlatAppearance.BorderSize = 0;
-            this.btnProveedor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
-            this.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProveedor.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProveedor.ForeColor = System.Drawing.Color.White;
-            this.btnProveedor.Location = new System.Drawing.Point(0, 383);
-            this.btnProveedor.Name = "btnProveedor";
-            this.btnProveedor.Size = new System.Drawing.Size(300, 35);
-            this.btnProveedor.TabIndex = 16;
-            this.btnProveedor.Text = "Proveedores";
-            this.btnProveedor.UseVisualStyleBackColor = false;
-            this.btnProveedor.Click += new System.EventHandler(this.btnProveedor_Click);
+            this.btnEmpleado.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.btnEmpleado.FlatAppearance.BorderSize = 0;
+            this.btnEmpleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
+            this.btnEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmpleado.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpleado.ForeColor = System.Drawing.Color.White;
+            this.btnEmpleado.Location = new System.Drawing.Point(0, 478);
+            this.btnEmpleado.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnEmpleado.Name = "btnEmpleado";
+            this.btnEmpleado.Size = new System.Drawing.Size(338, 44);
+            this.btnEmpleado.TabIndex = 16;
+            this.btnEmpleado.Text = "Empleados";
+            this.btnEmpleado.UseVisualStyleBackColor = false;
+            this.btnEmpleado.Click += new System.EventHandler(this.btnProveedor_Click);
             // 
             // pictureBox5
             // 
             this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(25, 324);
+            this.pictureBox5.Location = new System.Drawing.Point(28, 404);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox5.Size = new System.Drawing.Size(39, 44);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 15;
             this.pictureBox5.TabStop = false;
@@ -430,9 +455,10 @@
             // 
             this.panel6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
-            this.panel6.Location = new System.Drawing.Point(0, 324);
+            this.panel6.Location = new System.Drawing.Point(0, 404);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(5, 35);
+            this.panel6.Size = new System.Drawing.Size(6, 44);
             this.panel6.TabIndex = 14;
             // 
             // btnConsultarVenta
@@ -444,9 +470,10 @@
             this.btnConsultarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultarVenta.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultarVenta.ForeColor = System.Drawing.Color.White;
-            this.btnConsultarVenta.Location = new System.Drawing.Point(0, 324);
+            this.btnConsultarVenta.Location = new System.Drawing.Point(0, 404);
+            this.btnConsultarVenta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnConsultarVenta.Name = "btnConsultarVenta";
-            this.btnConsultarVenta.Size = new System.Drawing.Size(300, 35);
+            this.btnConsultarVenta.Size = new System.Drawing.Size(338, 44);
             this.btnConsultarVenta.TabIndex = 13;
             this.btnConsultarVenta.Text = "Consultar ventas";
             this.btnConsultarVenta.UseVisualStyleBackColor = false;
@@ -456,9 +483,10 @@
             // 
             this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(25, 212);
+            this.pictureBox4.Location = new System.Drawing.Point(28, 264);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox4.Size = new System.Drawing.Size(39, 44);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 12;
             this.pictureBox4.TabStop = false;
@@ -467,9 +495,10 @@
             // 
             this.panel5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
-            this.panel5.Location = new System.Drawing.Point(0, 212);
+            this.panel5.Location = new System.Drawing.Point(0, 264);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(5, 35);
+            this.panel5.Size = new System.Drawing.Size(6, 44);
             this.panel5.TabIndex = 11;
             // 
             // btnCompra
@@ -481,9 +510,10 @@
             this.btnCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCompra.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCompra.ForeColor = System.Drawing.Color.White;
-            this.btnCompra.Location = new System.Drawing.Point(3, 212);
+            this.btnCompra.Location = new System.Drawing.Point(3, 264);
+            this.btnCompra.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCompra.Name = "btnCompra";
-            this.btnCompra.Size = new System.Drawing.Size(294, 35);
+            this.btnCompra.Size = new System.Drawing.Size(331, 44);
             this.btnCompra.TabIndex = 10;
             this.btnCompra.Text = "Compra";
             this.btnCompra.UseVisualStyleBackColor = false;
@@ -493,9 +523,10 @@
             // 
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(25, 267);
+            this.pictureBox3.Location = new System.Drawing.Point(28, 333);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox3.Size = new System.Drawing.Size(39, 44);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 9;
             this.pictureBox3.TabStop = false;
@@ -504,9 +535,10 @@
             // 
             this.panel4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
-            this.panel4.Location = new System.Drawing.Point(0, 267);
+            this.panel4.Location = new System.Drawing.Point(0, 333);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(5, 35);
+            this.panel4.Size = new System.Drawing.Size(6, 44);
             this.panel4.TabIndex = 8;
             // 
             // btnVerificarPrecios
@@ -518,9 +550,10 @@
             this.btnVerificarPrecios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerificarPrecios.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerificarPrecios.ForeColor = System.Drawing.Color.White;
-            this.btnVerificarPrecios.Location = new System.Drawing.Point(0, 267);
+            this.btnVerificarPrecios.Location = new System.Drawing.Point(0, 333);
+            this.btnVerificarPrecios.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnVerificarPrecios.Name = "btnVerificarPrecios";
-            this.btnVerificarPrecios.Size = new System.Drawing.Size(300, 35);
+            this.btnVerificarPrecios.Size = new System.Drawing.Size(338, 44);
             this.btnVerificarPrecios.TabIndex = 7;
             this.btnVerificarPrecios.Text = "Verificar Precios";
             this.btnVerificarPrecios.UseVisualStyleBackColor = false;
@@ -530,9 +563,10 @@
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(25, 161);
+            this.pictureBox2.Location = new System.Drawing.Point(28, 200);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox2.Size = new System.Drawing.Size(39, 44);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
@@ -541,9 +575,10 @@
             // 
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
-            this.panel3.Location = new System.Drawing.Point(0, 161);
+            this.panel3.Location = new System.Drawing.Point(0, 200);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(5, 35);
+            this.panel3.Size = new System.Drawing.Size(6, 44);
             this.panel3.TabIndex = 5;
             // 
             // btnVenta
@@ -555,9 +590,10 @@
             this.btnVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVenta.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVenta.ForeColor = System.Drawing.Color.White;
-            this.btnVenta.Location = new System.Drawing.Point(3, 161);
+            this.btnVenta.Location = new System.Drawing.Point(3, 200);
+            this.btnVenta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnVenta.Name = "btnVenta";
-            this.btnVenta.Size = new System.Drawing.Size(297, 35);
+            this.btnVenta.Size = new System.Drawing.Size(334, 44);
             this.btnVenta.TabIndex = 4;
             this.btnVenta.Text = "Venta";
             this.btnVenta.UseVisualStyleBackColor = false;
@@ -567,27 +603,30 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(25, 109);
+            this.pictureBox1.Location = new System.Drawing.Point(28, 135);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox1.Size = new System.Drawing.Size(39, 44);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(0, 3);
+            this.panel2.Location = new System.Drawing.Point(0, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(297, 80);
+            this.panel2.Size = new System.Drawing.Size(334, 100);
             this.panel2.TabIndex = 2;
             // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
-            this.panel1.Location = new System.Drawing.Point(0, 109);
+            this.panel1.Location = new System.Drawing.Point(0, 135);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(5, 35);
+            this.panel1.Size = new System.Drawing.Size(6, 44);
             this.panel1.TabIndex = 1;
             // 
             // btnProductos
@@ -599,9 +638,10 @@
             this.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProductos.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProductos.ForeColor = System.Drawing.Color.White;
-            this.btnProductos.Location = new System.Drawing.Point(3, 109);
+            this.btnProductos.Location = new System.Drawing.Point(3, 135);
+            this.btnProductos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(297, 35);
+            this.btnProductos.Size = new System.Drawing.Size(334, 44);
             this.btnProductos.TabIndex = 0;
             this.btnProductos.Text = "Productos";
             this.btnProductos.UseVisualStyleBackColor = false;
@@ -611,22 +651,24 @@
             // 
             this.contendor.BackColor = System.Drawing.SystemColors.ControlDark;
             this.contendor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contendor.Location = new System.Drawing.Point(297, 35);
+            this.contendor.Location = new System.Drawing.Point(334, 44);
+            this.contendor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.contendor.Name = "contendor";
-            this.contendor.Size = new System.Drawing.Size(1003, 694);
+            this.contendor.Size = new System.Drawing.Size(1128, 867);
             this.contendor.TabIndex = 2;
             this.contendor.Paint += new System.Windows.Forms.PaintEventHandler(this.contendor_Paint);
             // 
             // VentanaPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1300, 729);
+            this.ClientSize = new System.Drawing.Size(1462, 911);
             this.Controls.Add(this.contendor);
             this.Controls.Add(this.MenuOpciones);
             this.Controls.Add(this.barraTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "VentanaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VentanaPrincipal";
@@ -675,7 +717,7 @@
         private System.Windows.Forms.Button btnCaja;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button btnProveedor;
+        private System.Windows.Forms.Button btnEmpleado;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnConsultarVenta;

@@ -136,5 +136,10 @@ namespace PuntoDeVenta.Frontend
             fh.Show();
         }
 
+        private void btnEmpleados_Click(object sender, EventArgs e)
+        {
+            subMenuReportes.Visible = false;
+            abrirFormHoja(new Empleados());
+        }
     }
 }

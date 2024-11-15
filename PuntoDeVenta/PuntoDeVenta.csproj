@@ -99,9 +99,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="backend\Connection.cs" />
+    <Compile Include="backend\DAOs\EmpleadoDAO.cs" />
     <Compile Include="backend\DAOs\ProductoDAO.cs" />
     <Compile Include="backend\DAOs\UsuarioDAO.cs" />
     <Compile Include="backend\models\usuario.cs" />
+    <Compile Include="Frontend\Empleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\Empleados.Designer.cs">
+      <DependentUpon>Empleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frontend\LoginMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +135,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Frontend\Empleados.resx">
+      <DependentUpon>Empleados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frontend\LoginMain.resx">
       <DependentUpon>LoginMain.cs</DependentUpon>
     </EmbeddedResource>

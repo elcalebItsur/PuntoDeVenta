@@ -43,25 +43,9 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
             this.btnReportes = new System.Windows.Forms.Button();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.btnCaja = new System.Windows.Forms.Button();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.btnProveedor = new System.Windows.Forms.Button();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.btnConsultarVenta = new System.Windows.Forms.Button();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.btnCompra = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnVerificarPrecios = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnVenta = new System.Windows.Forms.Button();
@@ -70,6 +54,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnProductos = new System.Windows.Forms.Button();
             this.contendor = new System.Windows.Forms.Panel();
+            this.btnEmpleados = new System.Windows.Forms.Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.btnClientes = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.barraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarTamaño)).BeginInit();
@@ -78,15 +67,10 @@
             this.MenuOpciones.SuspendLayout();
             this.subMenuReportes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // barraTitulo
@@ -160,25 +144,16 @@
             // MenuOpciones
             // 
             this.MenuOpciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.MenuOpciones.Controls.Add(this.pictureBox3);
+            this.MenuOpciones.Controls.Add(this.btnClientes);
+            this.MenuOpciones.Controls.Add(this.pictureBox4);
+            this.MenuOpciones.Controls.Add(this.btnEmpleados);
             this.MenuOpciones.Controls.Add(this.subMenuReportes);
             this.MenuOpciones.Controls.Add(this.pictureBox8);
-            this.MenuOpciones.Controls.Add(this.panel10);
             this.MenuOpciones.Controls.Add(this.btnReportes);
-            this.MenuOpciones.Controls.Add(this.pictureBox7);
-            this.MenuOpciones.Controls.Add(this.panel8);
-            this.MenuOpciones.Controls.Add(this.btnCaja);
-            this.MenuOpciones.Controls.Add(this.pictureBox6);
-            this.MenuOpciones.Controls.Add(this.panel7);
-            this.MenuOpciones.Controls.Add(this.btnProveedor);
-            this.MenuOpciones.Controls.Add(this.pictureBox5);
             this.MenuOpciones.Controls.Add(this.panel6);
-            this.MenuOpciones.Controls.Add(this.btnConsultarVenta);
-            this.MenuOpciones.Controls.Add(this.pictureBox4);
             this.MenuOpciones.Controls.Add(this.panel5);
-            this.MenuOpciones.Controls.Add(this.btnCompra);
-            this.MenuOpciones.Controls.Add(this.pictureBox3);
             this.MenuOpciones.Controls.Add(this.panel4);
-            this.MenuOpciones.Controls.Add(this.btnVerificarPrecios);
             this.MenuOpciones.Controls.Add(this.pictureBox2);
             this.MenuOpciones.Controls.Add(this.panel3);
             this.MenuOpciones.Controls.Add(this.btnVenta);
@@ -200,7 +175,7 @@
             this.subMenuReportes.Controls.Add(this.panel12);
             this.subMenuReportes.Controls.Add(this.panel13);
             this.subMenuReportes.Controls.Add(this.panel14);
-            this.subMenuReportes.Location = new System.Drawing.Point(55, 537);
+            this.subMenuReportes.Location = new System.Drawing.Point(55, 364);
             this.subMenuReportes.Name = "subMenuReportes";
             this.subMenuReportes.Size = new System.Drawing.Size(239, 145);
             this.subMenuReportes.TabIndex = 0;
@@ -288,31 +263,12 @@
             // 
             this.pictureBox8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(25, 490);
+            this.pictureBox8.Location = new System.Drawing.Point(25, 320);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(35, 35);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 24;
             this.pictureBox8.TabStop = false;
-            // 
-            // panel10
-            // 
-            this.panel10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
-            this.panel10.Controls.Add(this.panel11);
-            this.panel10.Location = new System.Drawing.Point(0, 490);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(5, 35);
-            this.panel10.TabIndex = 23;
-            // 
-            // panel11
-            // 
-            this.panel11.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
-            this.panel11.Location = new System.Drawing.Point(0, 0);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(5, 35);
-            this.panel11.TabIndex = 21;
             // 
             // btnReportes
             // 
@@ -323,145 +279,13 @@
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportes.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.ForeColor = System.Drawing.Color.White;
-            this.btnReportes.Location = new System.Drawing.Point(3, 490);
+            this.btnReportes.Location = new System.Drawing.Point(3, 320);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(294, 35);
+            this.btnReportes.Size = new System.Drawing.Size(297, 35);
             this.btnReportes.TabIndex = 22;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.UseVisualStyleBackColor = false;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(25, 437);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 21;
-            this.pictureBox7.TabStop = false;
-            // 
-            // panel8
-            // 
-            this.panel8.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
-            this.panel8.Controls.Add(this.panel9);
-            this.panel8.Location = new System.Drawing.Point(0, 437);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(5, 35);
-            this.panel8.TabIndex = 20;
-            // 
-            // panel9
-            // 
-            this.panel9.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
-            this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(5, 35);
-            this.panel9.TabIndex = 21;
-            // 
-            // btnCaja
-            // 
-            this.btnCaja.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnCaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.btnCaja.FlatAppearance.BorderSize = 0;
-            this.btnCaja.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
-            this.btnCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCaja.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCaja.ForeColor = System.Drawing.Color.White;
-            this.btnCaja.Location = new System.Drawing.Point(3, 437);
-            this.btnCaja.Name = "btnCaja";
-            this.btnCaja.Size = new System.Drawing.Size(294, 35);
-            this.btnCaja.TabIndex = 19;
-            this.btnCaja.Text = "Caja";
-            this.btnCaja.UseVisualStyleBackColor = false;
-            this.btnCaja.Click += new System.EventHandler(this.btnCaja_Click);
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(25, 379);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 18;
-            this.pictureBox6.TabStop = false;
-            // 
-            // panel7
-            // 
-            this.panel7.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
-            this.panel7.Location = new System.Drawing.Point(0, 379);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(5, 35);
-            this.panel7.TabIndex = 17;
-            // 
-            // btnProveedor
-            // 
-            this.btnProveedor.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.btnProveedor.FlatAppearance.BorderSize = 0;
-            this.btnProveedor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
-            this.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProveedor.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProveedor.ForeColor = System.Drawing.Color.White;
-            this.btnProveedor.Location = new System.Drawing.Point(0, 379);
-            this.btnProveedor.Name = "btnProveedor";
-            this.btnProveedor.Size = new System.Drawing.Size(300, 35);
-            this.btnProveedor.TabIndex = 16;
-            this.btnProveedor.Text = "Proveedores";
-            this.btnProveedor.UseVisualStyleBackColor = false;
-            this.btnProveedor.Click += new System.EventHandler(this.btnProveedor_Click);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(25, 320);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 15;
-            this.pictureBox5.TabStop = false;
-            // 
-            // panel6
-            // 
-            this.panel6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
-            this.panel6.Location = new System.Drawing.Point(0, 320);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(5, 35);
-            this.panel6.TabIndex = 14;
-            // 
-            // btnConsultarVenta
-            // 
-            this.btnConsultarVenta.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnConsultarVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.btnConsultarVenta.FlatAppearance.BorderSize = 0;
-            this.btnConsultarVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
-            this.btnConsultarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsultarVenta.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultarVenta.ForeColor = System.Drawing.Color.White;
-            this.btnConsultarVenta.Location = new System.Drawing.Point(0, 320);
-            this.btnConsultarVenta.Name = "btnConsultarVenta";
-            this.btnConsultarVenta.Size = new System.Drawing.Size(300, 35);
-            this.btnConsultarVenta.TabIndex = 13;
-            this.btnConsultarVenta.Text = "Consultar ventas";
-            this.btnConsultarVenta.UseVisualStyleBackColor = false;
-            this.btnConsultarVenta.Click += new System.EventHandler(this.btnConsultarVenta_Click);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(25, 208);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 12;
-            this.pictureBox4.TabStop = false;
             // 
             // panel5
             // 
@@ -472,34 +296,6 @@
             this.panel5.Size = new System.Drawing.Size(5, 35);
             this.panel5.TabIndex = 11;
             // 
-            // btnCompra
-            // 
-            this.btnCompra.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.btnCompra.FlatAppearance.BorderSize = 0;
-            this.btnCompra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
-            this.btnCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCompra.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCompra.ForeColor = System.Drawing.Color.White;
-            this.btnCompra.Location = new System.Drawing.Point(3, 208);
-            this.btnCompra.Name = "btnCompra";
-            this.btnCompra.Size = new System.Drawing.Size(294, 35);
-            this.btnCompra.TabIndex = 10;
-            this.btnCompra.Text = "Compra";
-            this.btnCompra.UseVisualStyleBackColor = false;
-            this.btnCompra.Click += new System.EventHandler(this.btnCompra_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(25, 263);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 9;
-            this.pictureBox3.TabStop = false;
-            // 
             // panel4
             // 
             this.panel4.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -508,23 +304,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(5, 35);
             this.panel4.TabIndex = 8;
-            // 
-            // btnVerificarPrecios
-            // 
-            this.btnVerificarPrecios.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnVerificarPrecios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.btnVerificarPrecios.FlatAppearance.BorderSize = 0;
-            this.btnVerificarPrecios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
-            this.btnVerificarPrecios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerificarPrecios.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerificarPrecios.ForeColor = System.Drawing.Color.White;
-            this.btnVerificarPrecios.Location = new System.Drawing.Point(0, 263);
-            this.btnVerificarPrecios.Name = "btnVerificarPrecios";
-            this.btnVerificarPrecios.Size = new System.Drawing.Size(300, 35);
-            this.btnVerificarPrecios.TabIndex = 7;
-            this.btnVerificarPrecios.Text = "Verificar Precios";
-            this.btnVerificarPrecios.UseVisualStyleBackColor = false;
-            this.btnVerificarPrecios.Click += new System.EventHandler(this.btnVerificarPrecios_Click);
             // 
             // pictureBox2
             // 
@@ -617,6 +396,70 @@
             this.contendor.TabIndex = 2;
             this.contendor.Paint += new System.Windows.Forms.PaintEventHandler(this.contendor_Paint);
             // 
+            // btnEmpleados
+            // 
+            this.btnEmpleados.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnEmpleados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.btnEmpleados.FlatAppearance.BorderSize = 0;
+            this.btnEmpleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
+            this.btnEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmpleados.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpleados.ForeColor = System.Drawing.Color.White;
+            this.btnEmpleados.Location = new System.Drawing.Point(3, 208);
+            this.btnEmpleados.Name = "btnEmpleados";
+            this.btnEmpleados.Size = new System.Drawing.Size(294, 35);
+            this.btnEmpleados.TabIndex = 25;
+            this.btnEmpleados.Text = "Empleados";
+            this.btnEmpleados.UseVisualStyleBackColor = false;
+            this.btnEmpleados.Click += new System.EventHandler(this.btnEmpleados_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(25, 208);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 26;
+            this.pictureBox4.TabStop = false;
+            // 
+            // panel6
+            // 
+            this.panel6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
+            this.panel6.Location = new System.Drawing.Point(0, 320);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(5, 35);
+            this.panel6.TabIndex = 14;
+            // 
+            // btnClientes
+            // 
+            this.btnClientes.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.btnClientes.FlatAppearance.BorderSize = 0;
+            this.btnClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
+            this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClientes.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClientes.ForeColor = System.Drawing.Color.White;
+            this.btnClientes.Location = new System.Drawing.Point(3, 263);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Size = new System.Drawing.Size(294, 35);
+            this.btnClientes.TabIndex = 27;
+            this.btnClientes.Text = "Clientes";
+            this.btnClientes.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(25, 263);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 28;
+            this.pictureBox3.TabStop = false;
+            // 
             // VentanaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -638,15 +481,10 @@
             this.MenuOpciones.ResumeLayout(false);
             this.subMenuReportes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            this.panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            this.panel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -664,28 +502,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button btnVerificarPrecios;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnVenta;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button btnCaja;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button btnProveedor;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button btnConsultarVenta;
-        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button btnCompra;
-        private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel12;
@@ -694,5 +516,10 @@
         private System.Windows.Forms.Button btnrpVenta;
         private System.Windows.Forms.Button btnrpPago;
         private System.Windows.Forms.Panel subMenuReportes;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button btnEmpleados;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button btnClientes;
+        private System.Windows.Forms.Panel panel6;
     }
 }

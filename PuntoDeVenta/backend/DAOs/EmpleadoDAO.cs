@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using PuntoDeVenta.Backend;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace PuntoDeVenta.backend.DAOs
 {
@@ -68,10 +70,42 @@ namespace PuntoDeVenta.backend.DAOs
 
         }
 
-        
+      
 
+        public bool ExisteEmpleado(string Id)
+    {
+        try
+        {
+            // Asegúrate de que 'connection' esté inicializada correctamente
+            connection.Open();
 
+            string query = "SELECT COUNT(*) FROM empleados WHERE Id = @Id";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@Id", Id);
+
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            return count > 0;
+        }
+        catch (Exception ex)
+        {
+            // Maneja la excepción según sea necesario, por ejemplo, logueándola
+            Console.WriteLine($"Error: {ex.Message}");
+            return false;
+        }
+        finally
+        {
+            if (connection != null && connection.State == System.Data.ConnectionState.Open)
+            {
+                connection.Close();
+            }
+        }
     }
+
+
+
+
+
+}
 }
 
 

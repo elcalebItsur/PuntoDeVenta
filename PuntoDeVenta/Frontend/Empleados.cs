@@ -51,13 +51,21 @@ namespace PuntoDeVenta.Frontend
                 return;
             }
 
-            
+
+            // Verificar si el empleado ya existe
+            if (empleados.ExisteEmpleado(Id))
+            {
+                MessageBox.Show("Ya existe un Empleado con el mismo Id.");
+                LimpiarCampos();
+                return;
+            }
 
             try
             {
                empleados.RegistrarEmpleado(Id, clave, nombre, apellido, departamento, telefono);
                 MessageBox.Show("Empleado registrado correctamente.");
-              
+                LimpiarCampos();
+
             }
             catch (Exception ex)
             {
@@ -65,6 +73,18 @@ namespace PuntoDeVenta.Frontend
             }
 
 
+
+
+        }
+
+        private void LimpiarCampos()
+        {
+            txtid.Clear();
+            txtclave.Clear();
+            txtnombre.Clear();
+            txtapellido.Clear();
+            txtdepartamento.Clear();
+            txttelefono.Clear();
 
 
         }

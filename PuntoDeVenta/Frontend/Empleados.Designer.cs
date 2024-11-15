@@ -172,7 +172,7 @@
             // 
             // txttelefono
             // 
-            this.txttelefono.Location = new System.Drawing.Point(171, 348);
+            this.txttelefono.Location = new System.Drawing.Point(180, 348);
             this.txttelefono.Name = "txttelefono";
             this.txttelefono.Size = new System.Drawing.Size(127, 26);
             this.txttelefono.TabIndex = 29;

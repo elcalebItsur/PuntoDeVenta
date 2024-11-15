@@ -174,7 +174,7 @@
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(204, 35);
             this.btnGuardar.TabIndex = 11;
-            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.Text = "Agregar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -182,9 +182,9 @@
             // 
             this.btnEliminarProducto.BackColor = System.Drawing.Color.Red;
             this.btnEliminarProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarProducto.Location = new System.Drawing.Point(0, 96);
+            this.btnEliminarProducto.Location = new System.Drawing.Point(3, 101);
             this.btnEliminarProducto.Name = "btnEliminarProducto";
-            this.btnEliminarProducto.Size = new System.Drawing.Size(200, 35);
+            this.btnEliminarProducto.Size = new System.Drawing.Size(195, 35);
             this.btnEliminarProducto.TabIndex = 12;
             this.btnEliminarProducto.Text = "Eliminar";
             this.btnEliminarProducto.UseVisualStyleBackColor = false;
@@ -219,18 +219,20 @@
             this.btnRegistrarNuevoProducto.Name = "btnRegistrarNuevoProducto";
             this.btnRegistrarNuevoProducto.Size = new System.Drawing.Size(204, 33);
             this.btnRegistrarNuevoProducto.TabIndex = 15;
-            this.btnRegistrarNuevoProducto.Text = "Mostrar Productos";
+            this.btnRegistrarNuevoProducto.Text = "Visualizar  Productos";
             this.btnRegistrarNuevoProducto.UseVisualStyleBackColor = false;
             this.btnRegistrarNuevoProducto.Click += new System.EventHandler(this.btnRegistrarNuevoProducto_Click);
             // 
             // pnlBorrarProducto
             // 
+            this.pnlBorrarProducto.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.pnlBorrarProducto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlBorrarProducto.Controls.Add(this.txtCodigoBarrasBorrar);
             this.pnlBorrarProducto.Controls.Add(this.lblBorrarP);
             this.pnlBorrarProducto.Controls.Add(this.btnEliminarProducto);
-            this.pnlBorrarProducto.Location = new System.Drawing.Point(247, 551);
+            this.pnlBorrarProducto.Location = new System.Drawing.Point(247, 530);
             this.pnlBorrarProducto.Name = "pnlBorrarProducto";
-            this.pnlBorrarProducto.Size = new System.Drawing.Size(200, 131);
+            this.pnlBorrarProducto.Size = new System.Drawing.Size(205, 156);
             this.pnlBorrarProducto.TabIndex = 16;
             // 
             // lblBorrarP
@@ -247,17 +249,19 @@
             // 
             this.txtCodigoBarrasBorrar.Location = new System.Drawing.Point(0, 68);
             this.txtCodigoBarrasBorrar.Name = "txtCodigoBarrasBorrar";
-            this.txtCodigoBarrasBorrar.Size = new System.Drawing.Size(200, 22);
+            this.txtCodigoBarrasBorrar.Size = new System.Drawing.Size(195, 22);
             this.txtCodigoBarrasBorrar.TabIndex = 10;
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.txtCódigoBarrasNuevoPrecio);
             this.panel2.Controls.Add(this.txtNuevoPrecio);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.btnModificarPrecio);
-            this.panel2.Location = new System.Drawing.Point(481, 526);
+            this.panel2.Location = new System.Drawing.Point(481, 530);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 156);
             this.panel2.TabIndex = 17;
@@ -277,9 +281,9 @@
             this.btnModificarPrecio.BackColor = System.Drawing.Color.SpringGreen;
             this.btnModificarPrecio.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificarPrecio.ForeColor = System.Drawing.Color.Black;
-            this.btnModificarPrecio.Location = new System.Drawing.Point(0, 121);
+            this.btnModificarPrecio.Location = new System.Drawing.Point(-1, 102);
             this.btnModificarPrecio.Name = "btnModificarPrecio";
-            this.btnModificarPrecio.Size = new System.Drawing.Size(200, 35);
+            this.btnModificarPrecio.Size = new System.Drawing.Size(195, 35);
             this.btnModificarPrecio.TabIndex = 12;
             this.btnModificarPrecio.Text = "Modificar";
             this.btnModificarPrecio.UseVisualStyleBackColor = false;
@@ -288,7 +292,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(35, 63);
+            this.label7.Location = new System.Drawing.Point(33, 51);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(137, 18);
             this.label7.TabIndex = 14;
@@ -300,16 +304,16 @@
             this.txtNuevoPrecio.Location = new System.Drawing.Point(0, 25);
             this.txtNuevoPrecio.Margin = new System.Windows.Forms.Padding(4);
             this.txtNuevoPrecio.Name = "txtNuevoPrecio";
-            this.txtNuevoPrecio.Size = new System.Drawing.Size(200, 22);
+            this.txtNuevoPrecio.Size = new System.Drawing.Size(195, 22);
             this.txtNuevoPrecio.TabIndex = 18;
             // 
             // txtCódigoBarrasNuevoPrecio
             // 
             this.txtCódigoBarrasNuevoPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCódigoBarrasNuevoPrecio.Location = new System.Drawing.Point(0, 92);
+            this.txtCódigoBarrasNuevoPrecio.Location = new System.Drawing.Point(-1, 73);
             this.txtCódigoBarrasNuevoPrecio.Margin = new System.Windows.Forms.Padding(4);
             this.txtCódigoBarrasNuevoPrecio.Name = "txtCódigoBarrasNuevoPrecio";
-            this.txtCódigoBarrasNuevoPrecio.Size = new System.Drawing.Size(200, 22);
+            this.txtCódigoBarrasNuevoPrecio.Size = new System.Drawing.Size(195, 22);
             this.txtCódigoBarrasNuevoPrecio.TabIndex = 19;
             // 
             // Productos

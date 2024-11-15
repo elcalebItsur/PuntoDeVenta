@@ -88,5 +88,63 @@ namespace PuntoDeVenta.Frontend
 
 
         }
+
+        private void btnGuardarEmpleado_Click(object sender, EventArgs e)
+        {
+            EmpleadoDAO empleados = new EmpleadoDAO();
+            string Id = txtid.Text;
+            string clave = txtclave.Text;
+            string nombre = txtnombre.Text;
+            string apellido = txtapellido.Text;
+            string departamento = txtdepartamento.Text;
+            string telefono = txttelefono.Text;
+
+
+            if (string.IsNullOrWhiteSpace(Id) || string.IsNullOrWhiteSpace(clave) ||
+                string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(apellido) ||
+                string.IsNullOrWhiteSpace(departamento) || string.IsNullOrWhiteSpace(telefono)
+                )
+            {
+                MessageBox.Show("Por favor, complete todos los campos.");
+                return;
+            }
+
+
+            // Verificar si el empleado ya existe
+            if (empleados.ExisteEmpleado(Id))
+            {
+                MessageBox.Show("Ya existe un Empleado con el mismo Id.");
+                LimpiarCampos();
+                return;
+            }
+
+            try
+            {
+                empleados.RegistrarEmpleado(Id, clave, nombre, apellido, departamento, telefono);
+                MessageBox.Show("Empleado registrado correctamente.");
+                LimpiarCampos();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al registrar el empleado: " + ex.Message);
+            }
+        }
+
+        private void btnMostrarEmpleados_Click(object sender, EventArgs e)
+        {
+            EmpleadoDAO empleados = new EmpleadoDAO();
+            empleados.MostarEmpleados(dataGridDatosE);
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void brnLimpiar_Click(object sender, EventArgs e)
+        {
+            dataGridDatosE.DataSource = null;
+        }
     }
 }

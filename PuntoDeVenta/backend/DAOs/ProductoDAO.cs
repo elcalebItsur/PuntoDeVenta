@@ -17,17 +17,18 @@ namespace PuntoDeVenta.backend.DAOs
             connection = new MySqlConnection(connectionString);
         }
 
-        public bool RegistrarProducto(string nombre, int cantidad, double precio, string Codigo_barras, string categoria)
+        public bool RegistrarProducto(string nombre, string stock, string precio, string Codigo_barras, string categoria)
         {
             try
             {
                 connection.Open();
 
-                string query = "INSERT INTO productos (Nombre, cantidad, precio, Codigo_Barras, categoria)";
+                string query = "INSERT INTO productos (Nombre, Stock_productos, Precio, Codigo_Barras, idCategoria) "
+                    + "VALUES (@nombre, @stock, @correo, precio, @Codigo_Barras, @categoria)";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@nombre", nombre);
-                cmd.Parameters.AddWithValue("@cantidad", cantidad);
-                cmd.Parameters.AddWithValue("@Precio", precio);
+                cmd.Parameters.AddWithValue("@stock", stock);
+                cmd.Parameters.AddWithValue("@precio", precio);
                 cmd.Parameters.AddWithValue("@Codigo_Barras", Codigo_barras);
                 cmd.Parameters.AddWithValue("@categoria", categoria);
 

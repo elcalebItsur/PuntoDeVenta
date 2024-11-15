@@ -98,6 +98,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="backend\Connection.cs" />
     <Compile Include="backend\DAOs\ProductoDAO.cs" />
     <Compile Include="backend\DAOs\UsuarioDAO.cs" />
     <Compile Include="backend\models\usuario.cs" />

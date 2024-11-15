@@ -99,7 +99,7 @@ namespace PuntoDeVenta.Frontend
 
         private void brnLimpiar_Click(object sender, EventArgs e)
         {
-            
+            dataGridDatosP.DataSource = null;
         }
     }
 }

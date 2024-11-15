@@ -20,6 +20,7 @@ namespace PuntoDeVenta.Frontend
             InitializeComponent();
         }
 
+       
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -39,55 +40,66 @@ namespace PuntoDeVenta.Frontend
         {
             ProductoDAO productos = new ProductoDAO();
             string nombre = txtNombre.Text;
-            string cantidad = txtCantidad.Text;
-            string precio = txtPrecio.Text;
             string codigoBarras = txtCodigo_Barras.Text;
-            string cateoria = cmbCategoria.Text;
+            string categoria = cmbCategoria.Text;
+            cmbCategoria.Items.Insert(0, "");
+            cmbCategoria.SelectedIndex = 0;
 
-            // Verificamos que todos los campos estén llenos
-            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(txtCantidad.Text) ||
+                string.IsNullOrWhiteSpace(txtPrecio.Text) || string.IsNullOrWhiteSpace(codigoBarras) ||
+                string.IsNullOrWhiteSpace(categoria))
             {
-                MessageBox.Show("El campo 'Nombre' no puede estar vacío.");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(txtCantidad.Text))
-            {
-                MessageBox.Show("El campo 'Apellido' no puede estar vacío.");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(txtPrecio.Text))
-            {
-                MessageBox.Show("El formato del correo electrónico no es válido.");
+                MessageBox.Show("Por favor, complete todos los campos.");
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txtCodigo_Barras.Text))
+            if (!int.TryParse(txtCantidad.Text, out int cantidad) || !decimal.TryParse(txtPrecio.Text, out decimal precio))
             {
-                MessageBox.Show("El campo 'Correo Electrónico' no puede estar vacío.");
+                MessageBox.Show("El campo 'Cantidad' debe ser un número entero y el campo 'Precio' un número decimal.");
                 return;
             }
 
-            // Si todos los campos están llenos, llamamos al método para registrar el usuario
+            // Verificar si el producto ya existe
+            if (productos.ExisteProducto(codigoBarras))
+            {
+                MessageBox.Show("Ya existe un producto con el mismo código de barras.");
+                LimpiarCampos();
+                return;
+            }
+
+            // Registrar el producto si no existe
             try
             {
-                productos.RegistrarProducto(txtNombre.Text, txtCantidad.Text, txtPrecio.Text, txtCodigo_Barras.Text, cmbCategoria.Text);
-                MessageBox.Show("Usuario registrado correctamente.");
-
-                // Limpiamos los campos después del registro exitoso
+                productos.RegistrarProducto(nombre, cantidad, precio, codigoBarras, categoria);
+                MessageBox.Show("Producto registrado correctamente.");
                 LimpiarCampos();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al registrar el PRODUCTO: " + ex.Message);
+                MessageBox.Show("Error al registrar el producto: " + ex.Message);
             }
-
         }
+
         private void LimpiarCampos()
         {
             txtNombre.Clear();
             txtCantidad.Clear();
             txtPrecio.Clear();
             txtCodigo_Barras.Clear();
+            cmbCategoria.SelectedIndex = 0;
+        }
+
+       
+
+        private void btnRegistrarNuevoProducto_Click(object sender, EventArgs e)
+        {
+            ProductoDAO productos = new ProductoDAO();
+            productos.MostrarProductos(dataGridDatosP);
+        }
+
+        private void brnLimpiar_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

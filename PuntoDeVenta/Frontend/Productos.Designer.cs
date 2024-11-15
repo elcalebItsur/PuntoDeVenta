@@ -188,6 +188,7 @@
             this.brnLimpiar.TabIndex = 13;
             this.brnLimpiar.Text = "Limpiar";
             this.brnLimpiar.UseVisualStyleBackColor = false;
+            this.brnLimpiar.Click += new System.EventHandler(this.brnLimpiar_Click);
             // 
             // dataGridDatosP
             // 
@@ -209,6 +210,7 @@
             this.btnRegistrarNuevoProducto.TabIndex = 15;
             this.btnRegistrarNuevoProducto.Text = "Mostrar Productos";
             this.btnRegistrarNuevoProducto.UseVisualStyleBackColor = false;
+            this.btnRegistrarNuevoProducto.Click += new System.EventHandler(this.btnRegistrarNuevoProducto_Click);
             // 
             // Productos
             // 

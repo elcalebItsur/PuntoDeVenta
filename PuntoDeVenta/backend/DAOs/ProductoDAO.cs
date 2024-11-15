@@ -1,9 +1,11 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PuntoDeVenta.backend.DAOs
 {
@@ -17,14 +19,14 @@ namespace PuntoDeVenta.backend.DAOs
             connection = new MySqlConnection(connectionString);
         }
 
-        public bool RegistrarProducto(string nombre, string stock, string precio, string Codigo_barras, string categoria)
+        public bool RegistrarProducto(string nombre, int stock, decimal precio, string Codigo_barras, string categoria)
         {
             try
             {
                 connection.Open();
 
                 string query = "INSERT INTO productos (Nombre, Stock_productos, Precio, Codigo_Barras, idCategoria) "
-                    + "VALUES (@nombre, @stock, @correo, precio, @Codigo_Barras, @categoria)";
+                             + "VALUES (@nombre, @stock, @precio, @Codigo_Barras, @categoria)";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@nombre", nombre);
                 cmd.Parameters.AddWithValue("@stock", stock);
@@ -41,34 +43,49 @@ namespace PuntoDeVenta.backend.DAOs
             }
         }
 
-        public bool VerificarProducto(string nombre, string Codigo_barras, string categoria, out int productoid)
+        public void MostrarProductos(DataGridView dataGridView)
         {
-            productoid = -1;
             try
             {
                 connection.Open();
-                string query = "SELECT idProducto FROM productos WHERE Nombre = @nombre AND Codigo_Barras = @codigo_barras AND idCategoria = @categoria";
+                string query = "SELECT * FROM productos";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
-                cmd.Parameters.AddWithValue("@nombre", nombre);
-                cmd.Parameters.AddWithValue("@codigo_barras", Codigo_barras);
-                cmd.Parameters.AddWithValue("@categoria", categoria);
-
-                var result = cmd.ExecuteScalar();
-
-                if (result != null)
-                {
-                    productoid = Convert.ToInt32(result);
-                    return true;
-                }
-
-                return false;
+                // Asignamos el DataTable al DataGridView para mostrar los productos
+                dataGridView.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar los productos: " + ex.Message);
             }
             finally
             {
                 connection.Close();
             }
         }
+        public bool ExisteProducto(string Codigo_barras)
+        {
+            try
+            {
+                connection.Open();
+                string query = "SELECT COUNT(*) FROM productos WHERE Codigo_Barras = @Codigo_Barras";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@Codigo_Barras", Codigo_barras);
+
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                return count > 0;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+        
 
 
 

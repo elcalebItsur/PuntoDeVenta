@@ -210,5 +210,11 @@ namespace PuntoDeVenta.Frontend
         {
 
         }
+
+        private void btnActualizarTabla_Click(object sender, EventArgs e)
+        {
+            ProductoDAO productos = new ProductoDAO();
+            productos.MostrarProductos(dataGridDatosP);
+        }
     }
 }

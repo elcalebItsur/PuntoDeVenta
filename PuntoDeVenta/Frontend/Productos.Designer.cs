@@ -53,6 +53,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnModificarPrecio = new System.Windows.Forms.Button();
+            this.btnActualizarTabla = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDatosP)).BeginInit();
             this.pnlBorrarProducto.SuspendLayout();
@@ -182,7 +183,7 @@
             // 
             this.btnEliminarProducto.BackColor = System.Drawing.Color.Red;
             this.btnEliminarProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarProducto.Location = new System.Drawing.Point(3, 101);
+            this.btnEliminarProducto.Location = new System.Drawing.Point(0, 102);
             this.btnEliminarProducto.Name = "btnEliminarProducto";
             this.btnEliminarProducto.Size = new System.Drawing.Size(195, 35);
             this.btnEliminarProducto.TabIndex = 12;
@@ -231,9 +232,9 @@
             this.pnlBorrarProducto.Controls.Add(this.txtCodigoBarrasBorrar);
             this.pnlBorrarProducto.Controls.Add(this.lblBorrarP);
             this.pnlBorrarProducto.Controls.Add(this.btnEliminarProducto);
-            this.pnlBorrarProducto.Location = new System.Drawing.Point(378, 526);
+            this.pnlBorrarProducto.Location = new System.Drawing.Point(378, 532);
             this.pnlBorrarProducto.Name = "pnlBorrarProducto";
-            this.pnlBorrarProducto.Size = new System.Drawing.Size(205, 156);
+            this.pnlBorrarProducto.Size = new System.Drawing.Size(200, 150);
             this.pnlBorrarProducto.TabIndex = 16;
             // 
             // txtCodigoBarrasBorrar
@@ -263,9 +264,9 @@
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.btnModificarPrecio);
-            this.panel2.Location = new System.Drawing.Point(820, 530);
+            this.panel2.Location = new System.Drawing.Point(820, 532);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 156);
+            this.panel2.Size = new System.Drawing.Size(200, 150);
             this.panel2.TabIndex = 17;
             // 
             // txtCódigoBarrasNuevoPrecio
@@ -321,12 +322,25 @@
             this.btnModificarPrecio.UseVisualStyleBackColor = false;
             this.btnModificarPrecio.Click += new System.EventHandler(this.btnModificarPrecio_Click_1);
             // 
+            // btnActualizarTabla
+            // 
+            this.btnActualizarTabla.BackColor = System.Drawing.Color.Yellow;
+            this.btnActualizarTabla.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizarTabla.Location = new System.Drawing.Point(599, 589);
+            this.btnActualizarTabla.Name = "btnActualizarTabla";
+            this.btnActualizarTabla.Size = new System.Drawing.Size(204, 33);
+            this.btnActualizarTabla.TabIndex = 18;
+            this.btnActualizarTabla.Text = "Actualizar Tabla";
+            this.btnActualizarTabla.UseVisualStyleBackColor = false;
+            this.btnActualizarTabla.Click += new System.EventHandler(this.btnActualizarTabla_Click);
+            // 
             // Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1170, 694);
+            this.Controls.Add(this.btnActualizarTabla);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnlBorrarProducto);
             this.Controls.Add(this.btnRegistrarNuevoProducto);
@@ -375,5 +389,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtCódigoBarrasNuevoPrecio;
         private System.Windows.Forms.TextBox txtNuevoPrecio;
+        private System.Windows.Forms.Button btnActualizarTabla;
     }
 }

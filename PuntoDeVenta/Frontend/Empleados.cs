@@ -166,14 +166,27 @@ namespace PuntoDeVenta.Frontend
 
             if (string.IsNullOrWhiteSpace(Id))
             {
-                MessageBox.Show("Por favor, ingrese el Id del empleado que desea eliminar.");
+                MessageBox.Show("Por favor, ingrese el Id del empleado que desea eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             // Verificar si el empleado existe
             if (!empleados.ExisteEmpleado(Id))
             {
-                MessageBox.Show("No se encontró ningún empleado con el Id proporcionado.");
+                MessageBox.Show("No se encontró ningún empleado con el Id proporcionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Mostrar cuadro de confirmación
+            DialogResult confirmacion = MessageBox.Show(
+                $"¿Está seguro de que desea eliminar al empleado con el Id '{Id}'?",
+                "Confirmar eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirmacion != DialogResult.Yes)
+            {
+                MessageBox.Show("Operación cancelada por el usuario.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -183,20 +196,18 @@ namespace PuntoDeVenta.Frontend
                 bool eliminado = empleados.EliminarEmpleado(Id);
                 if (eliminado)
                 {
-                    MessageBox.Show("Empleado eliminado correctamente.");
+                    MessageBox.Show("Empleado eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarCampos2();
-
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo eliminar el empleado.");
+                    MessageBox.Show("No se pudo eliminar el empleado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar el empleado: " + ex.Message);
+                MessageBox.Show("Error al eliminar el empleado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
         private void LimpiarCampos2()
         {
@@ -206,19 +217,32 @@ namespace PuntoDeVenta.Frontend
         private void btnModificarTelefono_Click(object sender, EventArgs e)
         {
             EmpleadoDAO empleados = new EmpleadoDAO();
-            string Id = textId_emp.Text;
-            string nuevoTelefono = txtNuevo_telefono.Text;
+            string Id = textId_emp.Text.Trim();
+            string nuevoTelefono = txtNuevo_telefono.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(Id) || string.IsNullOrWhiteSpace(nuevoTelefono))
             {
-                MessageBox.Show("Por favor, ingrese el Id del empleado y el nuevo teléfono.");
+                MessageBox.Show("Por favor, ingrese el Id del empleado y el nuevo teléfono.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             // Verificar si el empleado existe
             if (!empleados.ExisteEmpleado(Id))
             {
-                MessageBox.Show("No se encontró ningún empleado con el Id proporcionado.");
+                MessageBox.Show("No se encontró ningún empleado con el Id proporcionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Mostrar cuadro de confirmación
+            DialogResult confirmacion = MessageBox.Show(
+                $"¿Está seguro de que desea modificar el teléfono del empleado con Id '{Id}' a '{nuevoTelefono}'?",
+                "Confirmar modificación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirmacion != DialogResult.Yes)
+            {
+                MessageBox.Show("Operación cancelada por el usuario.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -228,19 +252,19 @@ namespace PuntoDeVenta.Frontend
                 bool modificado = empleados.ModificarTelefonoEmpleado(Id, nuevoTelefono);
                 if (modificado)
                 {
-                    MessageBox.Show("Teléfono del empleado modificado correctamente.");
+                    MessageBox.Show("Teléfono del empleado modificado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarCampos();
                     // Actualizar la lista de empleados en el DataGridView
                     empleados.MostarEmpleados(dataGridDatosE);
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo modificar el teléfono del empleado.");
+                    MessageBox.Show("No se pudo modificar el teléfono del empleado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al modificar el teléfono del empleado: " + ex.Message);
+                MessageBox.Show("Error al modificar el teléfono del empleado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -256,7 +280,7 @@ namespace PuntoDeVenta.Frontend
 
 
 
-        
+
 
     }
 }

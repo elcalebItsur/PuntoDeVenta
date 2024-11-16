@@ -103,6 +103,7 @@
     <Compile Include="backend\DAOs\EmpleadoDAO.cs" />
     <Compile Include="backend\DAOs\ProductoDAO.cs" />
     <Compile Include="backend\DAOs\UsuarioDAO.cs" />
+    <Compile Include="backend\DAOs\VentaDAO.cs" />
     <Compile Include="backend\models\usuario.cs" />
     <Compile Include="Frontend\Empleados.cs">
       <SubType>Form</SubType>
@@ -121,6 +122,12 @@
     </Compile>
     <Compile Include="Frontend\Productos.Designer.cs">
       <DependentUpon>Productos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Venta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\Venta.Designer.cs">
+      <DependentUpon>Venta.cs</DependentUpon>
     </Compile>
     <Compile Include="Frontend\VentanaPrincipal.cs">
       <SubType>Form</SubType>
@@ -144,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\Productos.resx">
       <DependentUpon>Productos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\Venta.resx">
+      <DependentUpon>Venta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\VentanaPrincipal.resx">
       <DependentUpon>VentanaPrincipal.cs</DependentUpon>

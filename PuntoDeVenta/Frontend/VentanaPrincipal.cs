@@ -105,6 +105,7 @@ namespace PuntoDeVenta.Frontend
         private void btnVenta_Click(object sender, EventArgs e)
         {
             subMenuReportes.Visible = false;
+            abrirFormHoja(new Venta());
         }
 
         private void btnCompra_Click(object sender, EventArgs e)

@@ -89,7 +89,10 @@ namespace PuntoDeVenta.Frontend
             cmbCategoria.SelectedIndex = 0;
         }
 
-       
+        private void btnModificarPrecio_Click(object sender, EventArgs e)
+        {
+            
+        }
 
         private void btnRegistrarNuevoProducto_Click(object sender, EventArgs e)
         {
@@ -100,6 +103,112 @@ namespace PuntoDeVenta.Frontend
         private void brnLimpiar_Click(object sender, EventArgs e)
         {
             dataGridDatosP.DataSource = null;
+        }
+
+        private void txtCodigoBarrasBorrar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminarProducto_Click(object sender, EventArgs e)
+        {
+            String codigoBarras = txtCodigoBarrasBorrar.Text;
+
+            if (string.IsNullOrEmpty(codigoBarras))
+            {
+                MessageBox.Show("Por favor, ingrese un código de barras.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Mostrar cuadro de confirmación
+            DialogResult confirmacion = MessageBox.Show(
+                $"¿Está seguro de que desea eliminar el producto con el código de barras '{codigoBarras}'?",
+                "Confirmar eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            // Si el usuario selecciona "No", no se ejecuta la eliminación
+            if (confirmacion != DialogResult.Yes)
+            {
+                MessageBox.Show("OPeracion cancelada por el usuario","", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Instancia de ProductosDao
+            ProductoDAO productosDao = new ProductoDAO();
+
+            // Llama al método para eliminar el producto
+            bool productoEliminado = productosDao.EliminarProductoPorCodigoBarras(codigoBarras);
+
+            // Muestra un mensaje dependiendo del resultado
+            if (productoEliminado)
+            {
+                MessageBox.Show("Producto eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtCodigoBarrasBorrar.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("No se encontró un producto con ese código de barras.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        
+
+        private void btnModificarPrecio_Click_1(object sender, EventArgs e)
+        {
+            string codigoBarras = txtCódigoBarrasNuevoPrecio.Text.Trim();
+            if (string.IsNullOrEmpty(codigoBarras))
+            {
+                MessageBox.Show("Por favor, ingrese un código de barras.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!decimal.TryParse(txtNuevoPrecio.Text.Trim(), out decimal nuevoPrecio) || nuevoPrecio <= 0)
+            {
+                MessageBox.Show("Por favor, ingrese un precio válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Confirmar la acción
+            DialogResult confirmacion = MessageBox.Show(
+                $"¿Está seguro de que desea modificar el precio del producto con código de barras '{codigoBarras}' a {nuevoPrecio:C}?",
+                "Confirmar modificación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirmacion != DialogResult.Yes)
+            {
+                MessageBox.Show("OPeracion cancelada por el usuario", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Instancia de ProductosDao
+            ProductoDAO productosDao = new ProductoDAO();
+
+            // Llama al método para modificar el precio
+            bool precioModificado = productosDao.ModificarPrecioPorCodigoBarras(codigoBarras, nuevoPrecio);
+
+            // Muestra un mensaje dependiendo del resultado
+            if (precioModificado)
+            {
+                txtCódigoBarrasNuevoPrecio.Text = "";
+                txtNuevoPrecio.Text = "";
+                MessageBox.Show("Precio modificado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("No se encontró un producto con ese código de barras.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtCódigoBarrasNuevoPrecio_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNuevoPrecio_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

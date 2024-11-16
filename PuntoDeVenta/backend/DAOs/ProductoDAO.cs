@@ -43,6 +43,25 @@ namespace PuntoDeVenta.backend.DAOs
             }
         }
 
+        public bool EliminarProductoPorCodigoBarras(string Codigo_barras)
+        {
+            try
+            {
+                connection.Open();
+
+                string query = "DELETE FROM productos WHERE Codigo_Barras = @Codigo_Barras";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@Codigo_Barras", Codigo_barras);
+
+                int result = cmd.ExecuteNonQuery();
+                return result > 0; // Retorna true si se eliminó al menos un registro
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
         public void MostrarProductos(DataGridView dataGridView)
         {
             try
@@ -84,8 +103,27 @@ namespace PuntoDeVenta.backend.DAOs
             }
         }
 
+        public bool ModificarPrecioPorCodigoBarras(string codigoBarras, decimal nuevoPrecio)
+        {
+            try
+            {
+                connection.Open();
 
-        
+                string query = "UPDATE productos SET Precio = @nuevoPrecio WHERE Codigo_Barras = @Codigo_Barras";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@nuevoPrecio", nuevoPrecio);
+                cmd.Parameters.AddWithValue("@Codigo_Barras", codigoBarras);
+
+                int result = cmd.ExecuteNonQuery();
+                return result > 0; // Retorna true si se actualizó al menos un registro
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
 
 
 

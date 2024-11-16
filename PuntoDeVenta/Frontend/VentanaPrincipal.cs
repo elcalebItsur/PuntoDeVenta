@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Microsoft.VisualBasic;
 
 namespace PuntoDeVenta.Frontend
 {
@@ -83,7 +84,22 @@ namespace PuntoDeVenta.Frontend
         private void btnProductos_Click(object sender, EventArgs e)
         {
             subMenuReportes.Visible = false;
-            abrirFormHoja(new Productos());
+
+            // Pedir contraseña
+            string contraseñaCorrecta = "12345"; // Contraseña correcta (puedes obtenerla de una configuración o base de datos)
+            string contraseñaIngresada = Microsoft.VisualBasic.Interaction.InputBox(
+                "Ingrese la contraseña de 5 dígitos para acceder a los productos:",
+                "Verificación de contraseña");
+
+            // Validar contraseña
+            if (contraseñaIngresada == contraseñaCorrecta)
+            {
+                abrirFormHoja(new Productos()); // Abre el formulario si la contraseña es correcta
+            }
+            else
+            {
+                MessageBox.Show("Contraseña incorrecta. Acceso denegado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnVenta_Click(object sender, EventArgs e)

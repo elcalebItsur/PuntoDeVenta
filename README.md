@@ -4,14 +4,14 @@ Este proyecto de punto de venta (POS) está diseñado para facilitar y gestionar
 
 ## Funcionalidades
 
-### 1. Proceso de Venta
+### 1. Proceso de Venta(En Proceso)
 - **Descripción:** Permite al usuario realizar transacciones de venta completas, gestionando el inventario de productos y generando tickets de venta automáticamente al finalizar la compra.
 - **Funciones principales:**
   - Selección de productos a vender.
   - Cálculo del total de la venta.
   - Generación y visualización de ticket para el cliente.
 
-### 2. CRUD de Productos
+### 2. CRUD de Productos(Completado)
 - **Descripción:** Los productos que se venderán se pueden crear, leer, actualizar y eliminar en esta sección.
 - **Funciones principales:**
   - Agregar nuevos productos al inventario.
@@ -19,7 +19,7 @@ Este proyecto de punto de venta (POS) está diseñado para facilitar y gestionar
   - Eliminar productos que ya no están disponibles.
   - Visualizar el inventario actual de productos.
 
-### 3. CRUD de Empleados
+### 3. CRUD de Empleados(Completado)
 - **Descripción:** Gestión del personal de la tienda, que incluye información y permisos de los empleados.
 - **Funciones principales:**
   - Registrar nuevos empleados.

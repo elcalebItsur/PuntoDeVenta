@@ -18,9 +18,21 @@ namespace PuntoDeVenta.Frontend
         public Productos()
         {
             InitializeComponent();
+            CargarCategorias();
         }
 
-       
+
+        private void CargarCategorias()
+        {
+            ProductoDAO productoDAO = new ProductoDAO();
+            List<string> categorias = productoDAO.ObtenerCategorias();
+
+            cmbCategoria.Items.Clear();
+            cmbCategoria.Items.Add("Añadir nueva categoría"); // Opción para añadir categoría
+            cmbCategoria.Items.AddRange(categorias.ToArray());
+            cmbCategoria.SelectedIndex = 0;
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -215,6 +227,53 @@ namespace PuntoDeVenta.Frontend
         {
             ProductoDAO productos = new ProductoDAO();
             productos.MostrarProductos(dataGridDatosP);
+        }
+
+        private string PromptInput(string title, string promptText)
+        {
+            Form prompt = new Form()
+            {
+                Width = 400,
+                Height = 200,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                Text = title,
+                StartPosition = FormStartPosition.CenterScreen
+            };
+
+            Label textLabel = new Label() { Left = 50, Top = 20, Text = promptText, AutoSize = true };
+            TextBox inputBox = new TextBox() { Left = 50, Top = 50, Width = 300 };
+            Button confirmation = new Button() { Text = "OK", Left = 250, Width = 100, Top = 100, DialogResult = DialogResult.OK };
+            confirmation.Click += (sender, e) => { prompt.Close(); };
+
+            prompt.Controls.Add(textLabel);
+            prompt.Controls.Add(inputBox);
+            prompt.Controls.Add(confirmation);
+            prompt.AcceptButton = confirmation;
+
+            return prompt.ShowDialog() == DialogResult.OK ? inputBox.Text : string.Empty;
+        }
+
+        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbCategoria.SelectedItem.ToString() == "Añadir nueva categoría")
+            {
+                string nuevaCategoria = PromptInput("Nueva Categoría", "Ingrese el nombre de la nueva categoría:");
+                if (!string.IsNullOrWhiteSpace(nuevaCategoria))
+                {
+                    ProductoDAO productoDAO = new ProductoDAO();
+
+                    // Evitar duplicados
+                    if (productoDAO.AgregarCategoria(nuevaCategoria, "Añadido por el usuario"))
+                    {
+                        MessageBox.Show("Categoría añadida exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CargarCategorias();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ya existe una categoría con ese nombre.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
     }
 }

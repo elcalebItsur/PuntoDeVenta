@@ -125,6 +125,76 @@ namespace PuntoDeVenta.backend.DAOs
 
 
 
+        public List<string> ObtenerCategorias()
+        {
+            try
+            {
+                connection.Open();
+                string query = "SELECT Nombre_Categoria FROM categorias";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                List<string> categorias = new List<string>();
+                while (reader.Read())
+                {
+                    categorias.Add(reader.GetString("Nombre_Categoria"));
+                }
+                return categorias;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public bool AgregarCategoria(string nombreCategoria, string descripcion)
+        {
+            try
+            {
+                // Verificar si la categoría ya existe
+                if (ExisteCategoria(nombreCategoria))
+                {
+                    return false;
+                }
+
+                connection.Open();
+                string query = "INSERT INTO categorias (idCategoria, Nombre_Categoria, Descripcion) VALUES (@idCategoria, @nombreCategoria, @descripcion)";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@idCategoria", GenerarIdCategoria());
+                cmd.Parameters.AddWithValue("@nombreCategoria", nombreCategoria);
+                cmd.Parameters.AddWithValue("@descripcion", descripcion);
+
+                int result = cmd.ExecuteNonQuery();
+                return result > 0;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        private bool ExisteCategoria(string nombreCategoria)
+        {
+            try
+            {
+                connection.Open();
+                string query = "SELECT COUNT(*) FROM categorias WHERE Nombre_Categoria = @nombreCategoria";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@nombreCategoria", nombreCategoria);
+
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                return count > 0;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        private string GenerarIdCategoria()
+        {
+            return Guid.NewGuid().ToString().Substring(0, 5).ToUpper(); // Generar un id único
+        }
 
 
 

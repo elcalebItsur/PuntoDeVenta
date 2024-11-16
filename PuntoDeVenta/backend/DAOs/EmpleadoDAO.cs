@@ -81,7 +81,7 @@ namespace PuntoDeVenta.backend.DAOs
                 // Asegúrate de que 'connection' esté inicializada correctamente
                 connection.Open();
 
-                string query = "SELECT COUNT(*) FROM empleados WHERE Id = @Id";
+                string query = "SELECT COUNT(*) FROM empleados WHERE Idempleado ="+"@Id";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@Id", Id);
 
@@ -102,6 +102,86 @@ namespace PuntoDeVenta.backend.DAOs
                 }
             }
         }
+
+
+
+        // Método para eliminar un empleado
+        public bool EliminarEmpleado(string Id)
+        {
+            try
+            {
+                connection.Open();
+
+                // Consulta para eliminar el empleado
+                string query = "DELETE FROM empleados WHERE Idempleado =" + "@Id";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@Id", Id);
+
+                int result = cmd.ExecuteNonQuery();
+                return result > 0;
+            }
+            catch (Exception ex)
+            {
+                // Manejar la excepción, por ejemplo, mostrar un mensaje de error
+                MessageBox.Show("Error al eliminar el empleado: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+
+
+        // Método para modificar el teléfono de un empleado
+        public bool ModificarTelefonoEmpleado(string Id, string Telefono)
+        {
+            try
+            {
+                connection.Open();
+
+                // Consulta para actualizar el teléfono del empleado
+                string query = "UPDATE empleados SET telefono = @nuevoTelefono"+" WHERE IdEmpleado ="+" @Id";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.Parameters.AddWithValue("@nuevoTelefono", Telefono);
+
+                int result = cmd.ExecuteNonQuery();
+                return result > 0;
+            }
+            catch (Exception ex)
+            {
+                // Manejar la excepción, por ejemplo, mostrando un mensaje de error
+                MessageBox.Show("Error al modificar el teléfono del empleado: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

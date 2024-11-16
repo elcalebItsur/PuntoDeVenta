@@ -146,5 +146,117 @@ namespace PuntoDeVenta.Frontend
         {
             dataGridDatosE.DataSource = null;
         }
+
+        private void btnEliminarProducto_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        
+
+        private void txtCodigoBarrasBorrar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminarE_Click(object sender, EventArgs e)
+        {
+            EmpleadoDAO empleados = new EmpleadoDAO();
+            string Id = textid.Text;
+
+            if (string.IsNullOrWhiteSpace(Id))
+            {
+                MessageBox.Show("Por favor, ingrese el Id del empleado que desea eliminar.");
+                return;
+            }
+
+            // Verificar si el empleado existe
+            if (!empleados.ExisteEmpleado(Id))
+            {
+                MessageBox.Show("No se encontró ningún empleado con el Id proporcionado.");
+                return;
+            }
+
+            try
+            {
+                // Eliminar el empleado
+                bool eliminado = empleados.EliminarEmpleado(Id);
+                if (eliminado)
+                {
+                    MessageBox.Show("Empleado eliminado correctamente.");
+                    LimpiarCampos2();
+
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el empleado.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar el empleado: " + ex.Message);
+            }
+
+        }
+        private void LimpiarCampos2()
+        {
+            textid.Clear();
+        }
+
+        private void btnModificarTelefono_Click(object sender, EventArgs e)
+        {
+            EmpleadoDAO empleados = new EmpleadoDAO();
+            string Id = textId_emp.Text;
+            string nuevoTelefono = txtNuevo_telefono.Text;
+
+            if (string.IsNullOrWhiteSpace(Id) || string.IsNullOrWhiteSpace(nuevoTelefono))
+            {
+                MessageBox.Show("Por favor, ingrese el Id del empleado y el nuevo teléfono.");
+                return;
+            }
+
+            // Verificar si el empleado existe
+            if (!empleados.ExisteEmpleado(Id))
+            {
+                MessageBox.Show("No se encontró ningún empleado con el Id proporcionado.");
+                return;
+            }
+
+            try
+            {
+                // Modificar el teléfono del empleado
+                bool modificado = empleados.ModificarTelefonoEmpleado(Id, nuevoTelefono);
+                if (modificado)
+                {
+                    MessageBox.Show("Teléfono del empleado modificado correctamente.");
+                    LimpiarCampos();
+                    // Actualizar la lista de empleados en el DataGridView
+                    empleados.MostarEmpleados(dataGridDatosE);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo modificar el teléfono del empleado.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al modificar el teléfono del empleado: " + ex.Message);
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
     }
 }

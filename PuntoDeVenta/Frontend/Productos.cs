@@ -25,13 +25,17 @@ namespace PuntoDeVenta.Frontend
         private void CargarCategorias()
         {
             ProductoDAO productoDAO = new ProductoDAO();
-            List<string> categorias = productoDAO.ObtenerCategorias();
+            List<KeyValuePair<string, string>> categorias = productoDAO.ObtenerCategorias();
 
-            cmbCategoria.Items.Clear();
-            cmbCategoria.Items.Add("Añadir nueva categoría"); // Opción para añadir categoría
-            cmbCategoria.Items.AddRange(categorias.ToArray());
-            cmbCategoria.SelectedIndex = 0;
+            // Inserta la opción para añadir una nueva categoría
+            categorias.Insert(0, new KeyValuePair<string, string>("0", "Añadir nueva categoría"));
+
+            cmbCategoria.DataSource = categorias;
+            cmbCategoria.DisplayMember = "Value"; // Muestra el Nombre de la categoría
+            cmbCategoria.ValueMember = "Key";    // Usa el ID como valor interno
         }
+
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -53,13 +57,18 @@ namespace PuntoDeVenta.Frontend
             ProductoDAO productos = new ProductoDAO();
             string nombre = txtNombre.Text;
             string codigoBarras = txtCodigo_Barras.Text;
-            string categoria = cmbCategoria.Text;
-            cmbCategoria.Items.Insert(0, "");
-            cmbCategoria.SelectedIndex = 0;
+
+            // Obtiene el ID de la categoría seleccionada
+            string categoriaId = cmbCategoria.SelectedValue.ToString();
+
+            if (categoriaId == "0") // Verifica si seleccionaron "Añadir nueva categoría"
+            {
+                MessageBox.Show("Por favor, seleccione una categoría válida.");
+                return;
+            }
 
             if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(txtCantidad.Text) ||
-                string.IsNullOrWhiteSpace(txtPrecio.Text) || string.IsNullOrWhiteSpace(codigoBarras) ||
-                string.IsNullOrWhiteSpace(categoria))
+                string.IsNullOrWhiteSpace(txtPrecio.Text) || string.IsNullOrWhiteSpace(codigoBarras))
             {
                 MessageBox.Show("Por favor, complete todos los campos.");
                 return;
@@ -71,7 +80,6 @@ namespace PuntoDeVenta.Frontend
                 return;
             }
 
-            // Verificar si el producto ya existe
             if (productos.ExisteProducto(codigoBarras))
             {
                 MessageBox.Show("Ya existe un producto con el mismo código de barras.");
@@ -79,10 +87,9 @@ namespace PuntoDeVenta.Frontend
                 return;
             }
 
-            // Registrar el producto si no existe
             try
             {
-                productos.RegistrarProducto(nombre, cantidad, precio, codigoBarras, categoria);
+                productos.RegistrarProducto(nombre, cantidad, precio, codigoBarras, categoriaId);
                 MessageBox.Show("Producto registrado correctamente.");
                 LimpiarCampos();
             }
@@ -91,6 +98,8 @@ namespace PuntoDeVenta.Frontend
                 MessageBox.Show("Error al registrar el producto: " + ex.Message);
             }
         }
+
+
 
         private void LimpiarCampos()
         {
@@ -255,14 +264,13 @@ namespace PuntoDeVenta.Frontend
 
         private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbCategoria.SelectedItem.ToString() == "Añadir nueva categoría")
+            if (cmbCategoria.SelectedValue.ToString() == "0") // "Añadir nueva categoría"
             {
                 string nuevaCategoria = PromptInput("Nueva Categoría", "Ingrese el nombre de la nueva categoría:");
                 if (!string.IsNullOrWhiteSpace(nuevaCategoria))
                 {
                     ProductoDAO productoDAO = new ProductoDAO();
 
-                    // Evitar duplicados
                     if (productoDAO.AgregarCategoria(nuevaCategoria, "Añadido por el usuario"))
                     {
                         MessageBox.Show("Categoría añadida exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -275,5 +283,6 @@ namespace PuntoDeVenta.Frontend
                 }
             }
         }
+
     }
 }

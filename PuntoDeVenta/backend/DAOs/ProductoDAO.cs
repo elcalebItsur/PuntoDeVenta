@@ -19,20 +19,20 @@ namespace PuntoDeVenta.backend.DAOs
             connection = new MySqlConnection(connectionString);
         }
 
-        public bool RegistrarProducto(string nombre, int stock, decimal precio, string Codigo_barras, string categoria)
+        public bool RegistrarProducto(string nombre, int stock, decimal precio, string Codigo_barras, string idCategoria)
         {
             try
             {
                 connection.Open();
 
                 string query = "INSERT INTO productos (Nombre, Stock_productos, Precio, Codigo_Barras, idCategoria) "
-                             + "VALUES (@nombre, @stock, @precio, @Codigo_Barras, @categoria)";
+                             + "VALUES (@nombre, @stock, @precio, @Codigo_Barras, @idCategoria)";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@nombre", nombre);
                 cmd.Parameters.AddWithValue("@stock", stock);
                 cmd.Parameters.AddWithValue("@precio", precio);
                 cmd.Parameters.AddWithValue("@Codigo_Barras", Codigo_barras);
-                cmd.Parameters.AddWithValue("@categoria", categoria);
+                cmd.Parameters.AddWithValue("@idCategoria", idCategoria);
 
                 int result = cmd.ExecuteNonQuery();
                 return result > 0;
@@ -42,6 +42,7 @@ namespace PuntoDeVenta.backend.DAOs
                 connection.Close();
             }
         }
+
 
         public bool EliminarProductoPorCodigoBarras(string Codigo_barras)
         {
@@ -125,19 +126,22 @@ namespace PuntoDeVenta.backend.DAOs
 
 
 
-        public List<string> ObtenerCategorias()
+        public List<KeyValuePair<string, string>> ObtenerCategorias()
         {
             try
             {
                 connection.Open();
-                string query = "SELECT Nombre_Categoria FROM categorias";
+                string query = "SELECT idCategoria, Nombre_Categoria FROM categorias";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                List<string> categorias = new List<string>();
+                var categorias = new List<KeyValuePair<string, string>>();
                 while (reader.Read())
                 {
-                    categorias.Add(reader.GetString("Nombre_Categoria"));
+                    categorias.Add(new KeyValuePair<string, string>(
+                        reader.GetString("idCategoria"),
+                        reader.GetString("Nombre_Categoria")
+                    ));
                 }
                 return categorias;
             }
@@ -146,6 +150,7 @@ namespace PuntoDeVenta.backend.DAOs
                 connection.Close();
             }
         }
+
 
         public bool AgregarCategoria(string nombreCategoria, string descripcion)
         {
@@ -194,6 +199,24 @@ namespace PuntoDeVenta.backend.DAOs
         private string GenerarIdCategoria()
         {
             return Guid.NewGuid().ToString().Substring(0, 5).ToUpper(); // Generar un id único
+        }
+
+        public DataTable ObtenerCategoriasDataTable()
+        {
+            try
+            {
+                connection.Open();
+                string query = "SELECT idCategoria, Nombre_Categoria FROM categorias";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
 

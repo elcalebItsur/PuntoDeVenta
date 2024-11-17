@@ -270,17 +270,5 @@ namespace PuntoDeVenta.Frontend
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

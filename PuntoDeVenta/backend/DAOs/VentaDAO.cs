@@ -21,67 +21,48 @@ namespace PuntoDeVenta.backend.DAOs
             connection = new MySqlConnection(connectionString);
         }
 
-        public bool RealizarVenta(string empleadoId, string productoId, int cantidadVendida)
+        public bool RealizarVenta(string empleadoId, DataTable carrito, decimal descuento)
         {
+            MySqlTransaction transaction = null;
+
             try
             {
                 connection.Open();
+                transaction = connection.BeginTransaction();
 
-                // 1. Verificar si hay suficiente stock del producto
-                string verificarStockQuery = "SELECT Cantidad, Precio FROM productos WHERE IdProducto = @productoId";
-                MySqlCommand verificarStockCmd = new MySqlCommand(verificarStockQuery, connection);
-                verificarStockCmd.Parameters.AddWithValue("@productoId", productoId);
+                decimal total = 0;
 
-                MySqlDataReader reader = verificarStockCmd.ExecuteReader();
-                if (!reader.Read())
+                foreach (DataRow row in carrito.Rows)
                 {
-                    MessageBox.Show("Producto no encontrado.");
-                    return false;
+                    string codigoBarras = row["Código de Barras"].ToString();
+                    int cantidad = Convert.ToInt32(row["Cantidad"]);
+                    decimal precioTotal = Convert.ToDecimal(row["Precio Total"]);
+
+                    // Actualizar stock
+                    string actualizarStockQuery = "UPDATE productos SET Cantidad = Cantidad - @cantidad WHERE CodigoBarras = @codigoBarras";
+                    MySqlCommand actualizarStockCmd = new MySqlCommand(actualizarStockQuery, connection, transaction);
+                    actualizarStockCmd.Parameters.AddWithValue("@cantidad", cantidad);
+                    actualizarStockCmd.Parameters.AddWithValue("@codigoBarras", codigoBarras);
+                    actualizarStockCmd.ExecuteNonQuery();
+
+                    total += precioTotal;
                 }
 
-                int stockActual = Convert.ToInt32(reader["Cantidad"]);
-                decimal precioProducto = Convert.ToDecimal(reader["Precio"]);
-                reader.Close();
-
-                if (stockActual < cantidadVendida)
-                {
-                    MessageBox.Show("No hay suficiente stock para realizar la venta.");
-                    return false;
-                }
-
-                // 2. Calcular el precio total de la venta
-                decimal precioTotal = cantidadVendida * precioProducto;
-
-                // 3. Insertar el ticket de venta en la tabla ticket_venta
-                string insertarTicketQuery = "INSERT INTO ticket_venta (EmpleadoId, ProductoId, Cantidad, PrecioTotal, Fecha) " +
-                                             "VALUES (@empleadoId, @productoId, @cantidadVendida, @precioTotal, @fecha)";
-                MySqlCommand insertarTicketCmd = new MySqlCommand(insertarTicketQuery, connection);
+                // Insertar ticket
+                total -= descuento;
+                string insertarTicketQuery = "INSERT INTO ticket_venta (EmpleadoId, Total, Fecha) VALUES (@empleadoId, @total, @fecha)";
+                MySqlCommand insertarTicketCmd = new MySqlCommand(insertarTicketQuery, connection, transaction);
                 insertarTicketCmd.Parameters.AddWithValue("@empleadoId", empleadoId);
-                insertarTicketCmd.Parameters.AddWithValue("@productoId", productoId);
-                insertarTicketCmd.Parameters.AddWithValue("@cantidadVendida", cantidadVendida);
-                insertarTicketCmd.Parameters.AddWithValue("@precioTotal", precioTotal);
+                insertarTicketCmd.Parameters.AddWithValue("@total", total);
                 insertarTicketCmd.Parameters.AddWithValue("@fecha", DateTime.Now);
                 insertarTicketCmd.ExecuteNonQuery();
 
-                // 4. Disminuir el stock del producto
-                string actualizarStockQuery = "UPDATE productos SET Cantidad =" +" Cantidad"+" - @cantidadVendida"+" WHERE IdProducto ="+" @productoId";
-                MySqlCommand actualizarStockCmd = new MySqlCommand(actualizarStockQuery, connection);
-                actualizarStockCmd.Parameters.AddWithValue("@cantidadVendida", cantidadVendida);
-                actualizarStockCmd.Parameters.AddWithValue("@productoId", productoId);
-                actualizarStockCmd.ExecuteNonQuery();
-
-                // 5. Actualizar las ventas totales del empleado
-                string actualizarVentasEmpleadoQuery = "UPDATE empleados SET VentasTotales = VentasTotales"+"+ @precioTotal"+" WHERE IdEmpleado ="+" @empleadoId";
-                MySqlCommand actualizarVentasEmpleadoCmd = new MySqlCommand(actualizarVentasEmpleadoQuery, connection);
-                actualizarVentasEmpleadoCmd.Parameters.AddWithValue("@precioTotal", precioTotal);
-                actualizarVentasEmpleadoCmd.Parameters.AddWithValue("@empleadoId", empleadoId);
-                actualizarVentasEmpleadoCmd.ExecuteNonQuery();
-
+                transaction.Commit();
                 return true;
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show("Error al realizar la venta: " + ex.Message);
+                transaction?.Rollback();
                 return false;
             }
             finally
@@ -89,6 +70,7 @@ namespace PuntoDeVenta.backend.DAOs
                 connection.Close();
             }
         }
+
 
 
 
@@ -117,5 +99,35 @@ namespace PuntoDeVenta.backend.DAOs
 
 
         }
+        public (string Nombre, decimal Precio, int StockProductos)? ObtenerProductoPorCodigo(string codigoBarras)
+        {
+            try
+            {
+                connection.Open();
+                string query = "SELECT Nombre, Precio, Stock_productos FROM productos WHERE Codigo_Barras = @codigoBarras";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@codigoBarras", codigoBarras);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    var producto = (
+                        reader["Nombre"].ToString(),
+                        Convert.ToDecimal(reader["Precio"]),
+                        Convert.ToInt32(reader["Stock_productos"])
+                    );
+                    return producto;
+                }
+                return null; // Producto no encontrado
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+
+
     }
 }

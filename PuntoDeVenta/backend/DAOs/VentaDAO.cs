@@ -116,21 +116,6 @@ namespace PuntoDeVenta.backend.DAOs
             }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
     }
 }

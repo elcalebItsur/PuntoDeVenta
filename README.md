@@ -61,8 +61,8 @@ El proyecto fue desarrollado por estudiantes del **Instituto Tecnológico Nacion
 ## Tecnologías Utilizadas
 
 - **Backend:** MySQL, C#
-- **Frontend:** Interfaz de usuario desarrollada con herramientas web modernas
-- **Base de Datos:** MySQL
+- **Frontend:** Interfaz de usuario desarrollada con herramientas de Visual Studio 2022 usando netframework 8.7
+- **Base de Datos:** MySQL alojada en Azure 
 
 ## Instalación y Configuración
 

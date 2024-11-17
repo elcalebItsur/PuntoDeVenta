@@ -21,7 +21,7 @@ namespace PuntoDeVenta.backend.DAOs
             connection = new MySqlConnection(connectionString);
         }
 
-        public bool RealizarVenta(string empleadoId, DataTable carrito, decimal descuento)
+        public bool RealizarVenta(string empleadoId, DataTable carrito, decimal descuento, decimal total1, decimal iva)
         {
             MySqlTransaction transaction = null;
 
@@ -38,8 +38,19 @@ namespace PuntoDeVenta.backend.DAOs
                     int cantidad = Convert.ToInt32(row["Cantidad"]);
                     decimal precioTotal = Convert.ToDecimal(row["Precio Total"]);
 
+                    // Verificar stock
+                    string verificarStockQuery = "SELECT Stock_Productos FROM productos WHERE CodigoBarras = @codigoBarras";
+                    MySqlCommand verificarStockCmd = new MySqlCommand(verificarStockQuery, connection, transaction);
+                    verificarStockCmd.Parameters.AddWithValue("@codigoBarras", codigoBarras);
+                    int stockActual = Convert.ToInt32(verificarStockCmd.ExecuteScalar());
+
+                    if (stockActual < cantidad)
+                    {
+                        throw new Exception($"Stock insuficiente para el producto {codigoBarras}");
+                    }
+
                     // Actualizar stock
-                    string actualizarStockQuery = "UPDATE productos SET Cantidad = Cantidad - @cantidad WHERE CodigoBarras = @codigoBarras";
+                    string actualizarStockQuery = "UPDATE productos SET Stock_Productos = Stock_Productos - @cantidad WHERE CodigoBarras = @codigoBarras";
                     MySqlCommand actualizarStockCmd = new MySqlCommand(actualizarStockQuery, connection, transaction);
                     actualizarStockCmd.Parameters.AddWithValue("@cantidad", cantidad);
                     actualizarStockCmd.Parameters.AddWithValue("@codigoBarras", codigoBarras);
@@ -48,21 +59,24 @@ namespace PuntoDeVenta.backend.DAOs
                     total += precioTotal;
                 }
 
-                // Insertar ticket
+                // Insertar venta
                 total -= descuento;
-                string insertarTicketQuery = "INSERT INTO ticket_venta (EmpleadoId, Total, Fecha) VALUES (@empleadoId, @total, @fecha)";
-                MySqlCommand insertarTicketCmd = new MySqlCommand(insertarTicketQuery, connection, transaction);
-                insertarTicketCmd.Parameters.AddWithValue("@empleadoId", empleadoId);
-                insertarTicketCmd.Parameters.AddWithValue("@total", total);
-                insertarTicketCmd.Parameters.AddWithValue("@fecha", DateTime.Now);
-                insertarTicketCmd.ExecuteNonQuery();
+                string insertarVentaQuery = "INSERT INTO Venta (idEmpleado, Total, Iva, Descuento) VALUES (@empleadoId, @total1, @iva, @descuento)";
+                MySqlCommand insertarVentaCmd = new MySqlCommand(insertarVentaQuery, connection, transaction);
+                insertarVentaCmd.Parameters.AddWithValue("@empleadoId", empleadoId);
+                
+                insertarVentaCmd.Parameters.AddWithValue("@total1", total1);
+                insertarVentaCmd.Parameters.AddWithValue("@iva", iva);
+                insertarVentaCmd.Parameters.AddWithValue("@descuento", descuento);
+                insertarVentaCmd.ExecuteNonQuery();
 
                 transaction.Commit();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 transaction?.Rollback();
+                Console.WriteLine($"Error: {ex.Message}");
                 return false;
             }
             finally

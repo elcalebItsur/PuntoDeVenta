@@ -27,7 +27,7 @@ Este proyecto de punto de venta (POS) está diseñado para facilitar y gestionar
   - Eliminar registros de empleados cuando ya no pertenecen al equipo.
   - Consultar el listado completo de empleados.
 
-### 4. CRUD de Clientes
+### 4. CRUD de Clientes(No se implemento)
 - **Descripción:** Facilita la administración de la base de datos de clientes, permitiendo la creación y mantenimiento de información relevante de cada cliente.
 - **Funciones principales:**
   - Crear nuevos clientes en el sistema.
@@ -35,14 +35,14 @@ Este proyecto de punto de venta (POS) está diseñado para facilitar y gestionar
   - Eliminar clientes de la base de datos.
   - Ver información detallada de cada cliente.
 
-### 5. Ticket de Venta
+### 5. Ticket de Venta(En proceso)
 - **Descripción:** Al completar una transacción, el sistema genera un ticket de venta que puede imprimirse o enviarse digitalmente.
 - **Características:**
   - Detalle de los productos comprados (nombre, cantidad, precio).
   - Total de la compra con desglose de impuestos si aplica.
   - Fecha y hora de la transacción.
 
-### 6. Reporte de Ventas por Periodo
+### 6. Reporte de Ventas por Periodo(En Proceso)
 - **Descripción:** Generación de reportes de ventas en un rango de fechas específico.
 - **Funciones principales:**
   - Consultar ventas realizadas en periodos definidos.

@@ -1,4 +1,4 @@
-﻿using PuntoDeVenta.backend.DAOs;
+using PuntoDeVenta.backend.DAOs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

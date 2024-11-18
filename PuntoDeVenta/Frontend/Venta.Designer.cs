@@ -34,7 +34,7 @@
             this.txtCantidadProducto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnCodigoBarrasElimiarProducto = new System.Windows.Forms.TextBox();
+            this.txtCodigoBarrasElimiarProducto = new System.Windows.Forms.TextBox();
             this.btnEliminarProductoSeleccionado = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRealizarVenta = new System.Windows.Forms.Button();
@@ -56,6 +56,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cmbEmpleado = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -68,12 +69,13 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(170)))), ((int)(((byte)(222)))));
+            this.panel1.Controls.Add(this.cmbEmpleado);
             this.panel1.Controls.Add(this.btnCancelarVenta);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtCantidadProducto);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.btnCodigoBarrasElimiarProducto);
+            this.panel1.Controls.Add(this.txtCodigoBarrasElimiarProducto);
             this.panel1.Controls.Add(this.btnEliminarProductoSeleccionado);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnRealizarVenta);
@@ -137,14 +139,14 @@
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
             // 
-            // btnCodigoBarrasElimiarProducto
+            // txtCodigoBarrasElimiarProducto
             // 
-            this.btnCodigoBarrasElimiarProducto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCodigoBarrasElimiarProducto.Location = new System.Drawing.Point(30, 412);
-            this.btnCodigoBarrasElimiarProducto.Name = "btnCodigoBarrasElimiarProducto";
-            this.btnCodigoBarrasElimiarProducto.Size = new System.Drawing.Size(188, 32);
-            this.btnCodigoBarrasElimiarProducto.TabIndex = 16;
-            this.btnCodigoBarrasElimiarProducto.TextChanged += new System.EventHandler(this.btnCodigoBarrasElimiarProducto_TextChanged);
+            this.txtCodigoBarrasElimiarProducto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoBarrasElimiarProducto.Location = new System.Drawing.Point(30, 412);
+            this.txtCodigoBarrasElimiarProducto.Name = "txtCodigoBarrasElimiarProducto";
+            this.txtCodigoBarrasElimiarProducto.Size = new System.Drawing.Size(188, 32);
+            this.txtCodigoBarrasElimiarProducto.TabIndex = 16;
+            this.txtCodigoBarrasElimiarProducto.TextChanged += new System.EventHandler(this.btnCodigoBarrasElimiarProducto_TextChanged);
             // 
             // btnEliminarProductoSeleccionado
             // 
@@ -195,10 +197,10 @@
             // lblNombreUsuarioCajero
             // 
             this.lblNombreUsuarioCajero.AutoSize = true;
-            this.lblNombreUsuarioCajero.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreUsuarioCajero.Location = new System.Drawing.Point(26, 496);
+            this.lblNombreUsuarioCajero.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreUsuarioCajero.Location = new System.Drawing.Point(26, 497);
             this.lblNombreUsuarioCajero.Name = "lblNombreUsuarioCajero";
-            this.lblNombreUsuarioCajero.Size = new System.Drawing.Size(74, 21);
+            this.lblNombreUsuarioCajero.Size = new System.Drawing.Size(71, 21);
             this.lblNombreUsuarioCajero.TabIndex = 4;
             this.lblNombreUsuarioCajero.Text = "Cajero:";
             this.lblNombreUsuarioCajero.Click += new System.EventHandler(this.lblNombreUsuarioCajero_Click);
@@ -374,6 +376,16 @@
             this.panel2.Size = new System.Drawing.Size(817, 105);
             this.panel2.TabIndex = 16;
             // 
+            // cmbEmpleado
+            // 
+            this.cmbEmpleado.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEmpleado.FormattingEnabled = true;
+            this.cmbEmpleado.Location = new System.Drawing.Point(103, 494);
+            this.cmbEmpleado.Name = "cmbEmpleado";
+            this.cmbEmpleado.Size = new System.Drawing.Size(209, 24);
+            this.cmbEmpleado.TabIndex = 22;
+            this.cmbEmpleado.SelectedIndexChanged += new System.EventHandler(this.cmbEmpleado_SelectedIndexChanged);
+            // 
             // Venta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -410,7 +422,7 @@
         private System.Windows.Forms.Button btnAgregarProductos;
         private System.Windows.Forms.Button btnRealizarVenta;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox btnCodigoBarrasElimiarProducto;
+        private System.Windows.Forms.TextBox txtCodigoBarrasElimiarProducto;
         private System.Windows.Forms.Button btnEliminarProductoSeleccionado;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
@@ -431,5 +443,6 @@
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.TextBox txtIVA;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ComboBox cmbEmpleado;
     }
 }

@@ -20,6 +20,7 @@ namespace PuntoDeVenta.Frontend
 
         private void InicializarCarrito()
         {
+            CargarEmpleados();
             carrito = new DataTable();
             carrito.Columns.Add("Código de Barras");
             carrito.Columns.Add("Nombre");
@@ -28,8 +29,13 @@ namespace PuntoDeVenta.Frontend
             carrito.Columns.Add("Precio Total");
 
             dataGridView1.DataSource = carrito; // Vincular al DataGridView
+            
         }
 
+        private void Venta_Load(object sender, EventArgs e)
+        {
+            CargarEmpleados();
+        }
 
         public Venta()
         {
@@ -50,8 +56,16 @@ namespace PuntoDeVenta.Frontend
                 return;
             }
 
+            if (cmbEmpleado.SelectedValue == null)
+            {
+                MessageBox.Show("Por favor, selecciona un empleado válido.");
+                return;
+            }
+
+            string empleadoSeleccionadoId = cmbEmpleado.SelectedValue.ToString();
+
             VentaDAO dao = new VentaDAO();
-            if (dao.RealizarVenta(lblNombreUsuarioCajero.Text, carrito, descuento))
+            if (dao.RealizarVenta(empleadoSeleccionadoId, carrito, descuento))
             {
                 MessageBox.Show("Venta realizada con éxito.");
                 carrito.Clear();
@@ -63,6 +77,9 @@ namespace PuntoDeVenta.Frontend
                 MessageBox.Show("Error al realizar la venta.");
             }
         }
+
+
+
 
 
         private void txtCodigo_Barras_TextChanged(object sender, EventArgs e)
@@ -123,7 +140,7 @@ namespace PuntoDeVenta.Frontend
 
         private void btnEliminarProductoSeleccionado_Click(object sender, EventArgs e)
         {
-            string codigoBarras = btnCodigoBarrasElimiarProducto.Text.Trim();
+            string codigoBarras = txtCodigoBarrasElimiarProducto.Text.Trim();
 
             if (string.IsNullOrEmpty(codigoBarras))
             {
@@ -230,6 +247,51 @@ namespace PuntoDeVenta.Frontend
             txtTotal.Text = total.ToString("C");
             lblTotalSolo.Text = $"Total: {total:C}";
         }
+
+        private string empleadoSeleccionadoId;
+
+        private void cmbEmpleado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbEmpleado.SelectedValue == null)
+            {
+                MessageBox.Show("Por favor, selecciona un empleado válido.");
+                return;
+            }
+
+            string empleadoSeleccionadoId = cmbEmpleado.SelectedValue.ToString();
+            Console.WriteLine($"Empleado seleccionado: {empleadoSeleccionadoId}");
+
+            if (cmbEmpleado.SelectedValue != null)
+            {
+                empleadoSeleccionadoId = cmbEmpleado.SelectedValue.ToString();
+            }
+            else
+            {
+                empleadoSeleccionadoId = null;
+            }
+
+
+        }
+
+
+        private void CargarEmpleados()
+        {
+            try
+            {
+                EmpleadoDAO empleadoDAO = new EmpleadoDAO();
+                var empleados = empleadoDAO.ObtenerEmpleados(); // Devuelve lista de empleados
+
+                cmbEmpleado.DataSource = empleados;
+                cmbEmpleado.DisplayMember = "Value"; // Muestra el nombre del empleado
+                cmbEmpleado.ValueMember = "Key";    // Usa IdEmpleado como valor
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los empleados: " + ex.Message);
+            }
+        }
+
+
 
 
     }

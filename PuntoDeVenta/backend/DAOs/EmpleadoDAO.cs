@@ -164,6 +164,33 @@ namespace PuntoDeVenta.backend.DAOs
         }
 
 
+        public List<KeyValuePair<string, string>> ObtenerEmpleados()
+        {
+            try
+            {
+                connection.Open();
+                string query = "SELECT IdEmpleado, Nombre FROM empleados";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                var empleados = new List<KeyValuePair<string, string>>();
+                while (reader.Read())
+                {
+                    empleados.Add(new KeyValuePair<string, string>(
+                        reader.GetString("IdEmpleado"),
+                        reader.GetString("Nombre")
+                    ));
+                }
+                return empleados;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+
     }
 }
 

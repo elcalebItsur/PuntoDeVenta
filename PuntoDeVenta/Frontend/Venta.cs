@@ -1,4 +1,4 @@
-﻿using PuntoDeVenta.backend.DAOs;
+using PuntoDeVenta.backend.DAOs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -50,33 +50,19 @@ namespace PuntoDeVenta.Frontend
                 return;
             }
 
-            // Calcular IVA (suponiendo una tasa del 16%)
-            decimal iva = subtotal * 0.16m;
-
-            // Realiza la venta
             VentaDAO dao = new VentaDAO();
-            bool ventaExitosa = dao.RealizarVenta(
-                "EMP001",  // Id del empleado (o nombre, ajusta según sea necesario)
-                carrito,                     // Carrito (DataTable con productos)
-                total,
-                descuento,                   // Descuento
-                iva                          // IVA calculado
-            );
-
-            // Manejar resultado
-            if (ventaExitosa)
+            if (dao.RealizarVenta(lblNombreUsuarioCajero.Text, carrito, descuento))
             {
                 MessageBox.Show("Venta realizada con éxito.");
-                carrito.Clear();  // Limpia el carrito después de la venta
-                subtotal = 0;     // Resetea el subtotal
-                ActualizarTotales(); // Actualiza la interfaz
+                carrito.Clear();
+                subtotal = 0;
+                ActualizarTotales();
             }
             else
             {
                 MessageBox.Show("Error al realizar la venta.");
             }
         }
-
 
 
         private void txtCodigo_Barras_TextChanged(object sender, EventArgs e)
@@ -91,72 +77,42 @@ namespace PuntoDeVenta.Frontend
 
         private void btnAgregarProductos_Click(object sender, EventArgs e)
         {
-            try
+            string codigoBarras = txtCodigo_Barras.Text.Trim();
+            int cantidad;
+
+            if (!int.TryParse(txtCantidadProducto.Text, out cantidad) || cantidad <= 0)
             {
-                // Obtener el código de barras y cantidad
-                string codigoBarras = txtCodigo_Barras.Text.Trim();
-                if (string.IsNullOrWhiteSpace(codigoBarras))
-                {
-                    MessageBox.Show("Ingrese un código de barras válido.");
-                    return;
-                }
-
-                if (!int.TryParse(txtCantidadProducto.Text, out int cantidad) || cantidad <= 0)
-                {
-                    MessageBox.Show("Ingrese una cantidad válida.");
-                    return;
-                }
-
-                // Buscar el producto en la base de datos
-                VentaDAO dao = new VentaDAO();
-                var producto = dao.ObtenerProductoPorCodigo(codigoBarras);
-
-                if (producto == null)
-                {
-                    MessageBox.Show("Producto no encontrado.");
-                    return;
-                }
-
-                // Desempaquetar el producto encontrado
-                var (nombre, precio, stockProductos) = producto.Value;
-
-                // Validar stock disponible
-                if (stockProductos < cantidad)
-                {
-                    MessageBox.Show($"Stock insuficiente. Disponible: {stockProductos}");
-                    return;
-                }
-
-                // Calcular el precio total y agregar al carrito
-                decimal precioTotal = cantidad * precio;
-
-                if (carrito == null)
-                {
-                    // Inicializar carrito si está nulo
-                    carrito = new DataTable();
-                    carrito.Columns.Add("Código de Barras", typeof(string));
-                    carrito.Columns.Add("Nombre", typeof(string));
-                    carrito.Columns.Add("Cantidad", typeof(int));
-                    carrito.Columns.Add("Precio Unitario", typeof(decimal));
-                    carrito.Columns.Add("Precio Total", typeof(decimal));
-                }
-
-                carrito.Rows.Add(codigoBarras, nombre, cantidad, precio, precioTotal);
-
-                // Actualizar subtotal y totales
-                subtotal += precioTotal;
-                ActualizarTotales();
-
-                // Limpiar campos de entrada
-                txtCodigo_Barras.Clear();
-                txtCantidadProducto.Clear();
+                MessageBox.Show("Ingrese una cantidad válida.");
+                return;
             }
-            catch (Exception ex)
+
+            VentaDAO dao = new VentaDAO();
+            var producto = dao.ObtenerProductoPorCodigo(codigoBarras);
+
+            if (producto == null)
             {
-                // Manejo general de errores
-                MessageBox.Show($"Ocurrió un error: {ex.Message}");
+                MessageBox.Show("Producto no encontrado.");
+                return;
             }
+
+            var (nombre, precio, stockProductos) = producto.Value;
+
+            if (stockProductos < cantidad)
+            {
+                MessageBox.Show("No hay suficiente stock del producto.");
+                return;
+            }
+
+            decimal precioTotal = cantidad * precio;
+            carrito.Rows.Add(codigoBarras, nombre, cantidad, precio, precioTotal);
+
+            subtotal += precioTotal;
+            ActualizarTotales();
+
+            txtCodigo_Barras.Clear();
+            txtCantidadProducto.Clear();
         }
+
 
 
 
@@ -167,59 +123,34 @@ namespace PuntoDeVenta.Frontend
 
         private void btnEliminarProductoSeleccionado_Click(object sender, EventArgs e)
         {
-            try
+            string codigoBarras = btnCodigoBarrasElimiarProducto.Text.Trim();
+
+            if (string.IsNullOrEmpty(codigoBarras))
             {
-                // Obtener el valor del código de barras ingresado
-                string codigoBarras = btnCodigoBarrasElimiarProducto.Text.Trim();
-
-                // Validar que el campo no esté vacío
-                if (string.IsNullOrWhiteSpace(codigoBarras))
-                {
-                    MessageBox.Show("Por favor, ingrese un código de barras válido.");
-                    return;
-                }
-
-                // Asegúrate de que el carrito no sea nulo
-                if (carrito == null || carrito.Rows.Count == 0)
-                {
-                    MessageBox.Show("El carrito está vacío.");
-                    return;
-                }
-
-                // Buscar la fila correspondiente al código de barras
-                var filas = carrito.Select($"[Código de Barras] = '{codigoBarras}'");
-
-                if (filas.Length > 0)
-                {
-                    // Si la fila existe, elimínala
-                    DataRow fila = filas[0];
-                    decimal precioTotal = Convert.ToDecimal(fila["Precio Total"]);
-                    subtotal -= precioTotal;
-
-                    fila.Delete();
-                    carrito.AcceptChanges();
-
-                    // Actualiza la fuente de datos del DataGridView
-                    dataGridView1.DataSource = null;
-                    dataGridView1.DataSource = carrito;
-
-                    // Actualizar los totales
-                    ActualizarTotales();
-                }
-                else
-                {
-                    MessageBox.Show("Producto no encontrado en el carrito.");
-                }
+                MessageBox.Show("Por favor, ingresa el código de barras del producto a eliminar.");
+                return;
             }
-            catch (Exception ex)
+
+            var filas = carrito.Select($"[Código de Barras] = '{codigoBarras}'");
+
+            if (filas.Length > 0)
             {
-                MessageBox.Show($"Ocurrió un error: {ex.Message}");
+                DataRow fila = filas[0];
+                decimal precioTotal = Convert.ToDecimal(fila["Precio Total"]);
+                subtotal -= precioTotal;
+
+                fila.Delete(); // Elimina la fila del carrito
+                carrito.AcceptChanges(); // Asegura que se refleje en el DataGridView
+
+                ActualizarTotales();
+                MessageBox.Show("Producto eliminado del carrito.");
             }
-            finally
+            else
             {
-                // Limpiar el campo de código de barras
-                txtCodigo_Barras.Clear();
+                MessageBox.Show("Producto no encontrado en el carrito.");
             }
+
+            txtCodigo_Barras.Clear();
         }
 
 
@@ -283,17 +214,23 @@ namespace PuntoDeVenta.Frontend
         private void ActualizarTotales()
         {
             descuento = string.IsNullOrEmpty(txtDescuento.Text) ? 0 : Convert.ToDecimal(txtDescuento.Text);
-            total = (subtotal - descuento) * 1.16m;
+            if (descuento > subtotal)
+            {
+                MessageBox.Show("El descuento no puede ser mayor al subtotal.");
+                descuento = 0;
+                txtDescuento.Text = "0";
+            }
+
+            decimal baseImponible = subtotal - descuento;
+            decimal IVA = baseImponible * 0.16m;
+            total = baseImponible + IVA;
 
             txtSubtotal.Text = subtotal.ToString("C");
+            txtIVA.Text = IVA.ToString("C");
             txtTotal.Text = total.ToString("C");
-            txtIVA.Text = (total - (subtotal - descuento)).ToString("C");
             lblTotalSolo.Text = $"Total: {total:C}";
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
     }
 }

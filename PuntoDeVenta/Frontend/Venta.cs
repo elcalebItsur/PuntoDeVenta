@@ -156,6 +156,7 @@ namespace PuntoDeVenta.Frontend
 
 
 
+
         private void lblNombreUsuarioCajero_Click(object sender, EventArgs e)
         {
 

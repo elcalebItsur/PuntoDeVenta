@@ -14,55 +14,36 @@ namespace PuntoDeVenta
             connection = new MySqlConnection(connectionString);
         }
 
-        public bool RegistrarUsuario(string nombre, string apellido, string correo, string usuario, string contrasena)
+        public bool IniciarSesion(string usuario, string contrasena, out string idEmpleado)
         {
+            idEmpleado = null; // Inicializa como null
             try
             {
                 connection.Open();
-
-                string query = "INSERT INTO usuarios (nombre, apellido, correo_electronico, usuario, contrasena) " +
-                               "VALUES (@nombre, @apellido, @correo, @usuario, SHA2(@contrasena, 256))";
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("@nombre", nombre);
-                cmd.Parameters.AddWithValue("@apellido", apellido);
-                cmd.Parameters.AddWithValue("@correo", correo);
-                cmd.Parameters.AddWithValue("@usuario", usuario);
-                cmd.Parameters.AddWithValue("@contrasena", contrasena);
-
-                int result = cmd.ExecuteNonQuery();
-                return result > 0;
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
-
-        public bool IniciarSesion(string usuario, string contrasena, out int usuarioId)
-        {
-            usuarioId = -1;
-            try
-            {
-                connection.Open();
-                string query = "SELECT id FROM usuarios WHERE usuario = @usuario AND contrasena = SHA2(@contrasena, 256)";
+                string query = "SELECT IdEmpleado FROM empleados WHERE IdEmpleado = @usuario AND Clave_empleado = SHA2(@contrasena, 256)";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@usuario", usuario);
                 cmd.Parameters.AddWithValue("@contrasena", contrasena);
 
-                var result = cmd.ExecuteScalar();
+                var result = cmd.ExecuteScalar(); // Devuelve el valor de IdEmpleado si existe
 
                 if (result != null)
                 {
-                    usuarioId = Convert.ToInt32(result);
+                    idEmpleado = result.ToString(); // Captura el IdEmpleado
                     return true;
                 }
 
-                return false;
+                return false; // Credenciales incorrectas
             }
             finally
             {
                 connection.Close();
             }
         }
+
+
+
+       
+
     }
 }

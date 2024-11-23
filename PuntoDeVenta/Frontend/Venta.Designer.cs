@@ -88,7 +88,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(368, 640);
             this.panel1.TabIndex = 11;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+          //  this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnCancelarVenta
             // 

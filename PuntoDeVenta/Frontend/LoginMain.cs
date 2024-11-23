@@ -30,24 +30,41 @@ namespace PuntoDeVenta.Front_end
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            string usuario = txtUsuario.Text;
-            string contrasena = txtPassword.Text;
+            string usuario = txtUsuario.Text.Trim();
+            string contrasena = txtPassword.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(contrasena))
+            {
+                MessageBox.Show("Por favor, ingrese el usuario y la contraseña.");
+                return;
+            }
 
             UsuarioDAO usuarioDAO = new UsuarioDAO();
-            if (usuarioDAO.IniciarSesion(usuario, contrasena, out int usuarioId))
-            {
-                MessageBox.Show("Inicio de sesión exitoso.");
-                this.Hide();
 
-                // Abre el formulario Mensaje pasando el usuarioId
-                VentanaPrincipal mensajeForm = new VentanaPrincipal(usuarioId);
-                mensajeForm.Show();
-            }
-            else
+            try
             {
-                MessageBox.Show("Usuario o contraseña incorrecto(s).");
+                if (usuarioDAO.IniciarSesion(usuario, contrasena, out string idEmpleado)) // Captura el IdEmpleado
+                {
+                    MessageBox.Show($"Inicio de sesión exitoso. Bienvenido {idEmpleado}.");
+                    this.Hide();
+
+                    // Abre el formulario principal pasando el IdEmpleado
+                    VentanaPrincipal ventanaPrincipal = new VentanaPrincipal(idEmpleado);
+                    ventanaPrincipal.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña incorrecto(s).");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al intentar iniciar sesión: {ex.Message}");
             }
         }
+
+
+
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {

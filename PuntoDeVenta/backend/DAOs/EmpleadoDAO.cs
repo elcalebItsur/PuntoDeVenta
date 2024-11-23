@@ -27,25 +27,26 @@ namespace PuntoDeVenta.backend.DAOs
             {
                 connection.Open();
 
-                string query = "INSERT INTO empleados (IdEmpleado, Clave_empleado, Nombre, Apellido, Departamento, telefono) "
-                             + "VALUES (@Id, @Clave, @nombre, @apellido, @departamento,@Telefono)";
+                string query = "INSERT INTO empleados (IdEmpleado, Clave_empleado, Nombre, Apellido, Departamento, telefono) " +
+                               "VALUES (@Id, SHA2(@Clave, 256), @nombre, @apellido, @departamento, @Telefono)";
+
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@Id", Id);
-                cmd.Parameters.AddWithValue("@Clave", Clave);
+                cmd.Parameters.AddWithValue("@Clave", Clave); // Clave en texto plano, será encriptada con SHA2
                 cmd.Parameters.AddWithValue("@nombre", nombre);
                 cmd.Parameters.AddWithValue("@apellido", apellido);
                 cmd.Parameters.AddWithValue("@departamento", departamento);
                 cmd.Parameters.AddWithValue("@Telefono", Telefono);
 
-
                 int result = cmd.ExecuteNonQuery();
-                return result > 0;
+                return result > 0; // Retorna true si se insertó el registro
             }
             finally
             {
                 connection.Close();
             }
         }
+
         public void MostarEmpleados(DataGridView dataGridView)
         {
             try

@@ -14,15 +14,17 @@ namespace PuntoDeVenta.Frontend
 {
     public partial class VentanaPrincipal : Form
     {
-        private int usuarioId; // Almacenar el usuario logueado
-        public VentanaPrincipal(int usuarioId)
+        private string idEmpleado;
+
+        public VentanaPrincipal(string idEmpleado)
         {
             InitializeComponent();
-            this.usuarioId = usuarioId;
-            //this.WindowState = FormWindowState.Maximized;
+            this.idEmpleado = idEmpleado;
         }
+    
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+
+    private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }
@@ -94,6 +96,8 @@ namespace PuntoDeVenta.Frontend
             // Validar contraseña
             if (contraseñaIngresada == contraseñaCorrecta)
             {
+                SesionActual.IdEmpleado = idEmpleado;
+
                 abrirFormHoja(new Productos()); // Abre el formulario si la contraseña es correcta
             }
             else
@@ -101,6 +105,12 @@ namespace PuntoDeVenta.Frontend
                 MessageBox.Show("Contraseña incorrecta. Acceso denegado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public static class SesionActual
+        {
+            public static string IdEmpleado { get; set; }
+        }
+
 
         private void btnVenta_Click(object sender, EventArgs e)
         {
